@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Modsarus XML Interface based on IEC 62559-3, version 1-->
+<!--Based on IEC 62559-2 edition 1
+Generated from UML Use Case Repository with Modsarus® (EDF R&D Tool)-->
+<UC:UseCaseRepository xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016 C:\EAAddIns\Modsarus\Transformation\IEC62559-3_UC.xsd" xmlns:UC="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016">
+  <ActorLibrary>
+    <Actor>
+      <description>The GSE (Gestore dei Servizi Energetici) is a role exclusively in the Italian pilot. &lt;br/&gt;The GSE plays a role in the billing process. They receive the consumption and injection data from the DSO from which they calculate the monetary incentive the EC receives for shared energy. This incentive is then transferred to the bank account of the community. &lt;br/&gt;In addition, the EC members receive their renumeration for the energy injected into the grid through the GSE.</description>
+      <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+      <name>GSE</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC member is an entity in the community which can act as a prosumer or a consumer. Depending on the governance model of the EC, the EC member has an active role and can control the own assets or has a passive role in which the EC member does not control these assets.</description>
+      <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+      <name>EC Member</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC manager has a versatile role in the ECs. &lt;br/&gt;In the case of the Italian and Belgian pilot, the EC manager collects the data needed for forecasting algorithms and calculates the forecast. Additionally, the EC manager creates a schedule for the flexible assets and gives advice to the EC members to guide their energy consumption behavior. &lt;br/&gt;In the Italian pilot, the flexible assets are under the governance of each EC member. In this case, the EC manager schedules these assets and gives the result as an advice to the members. &lt;br/&gt;In the Belgian pilot, the EC manager has control over the flexible assets, creates the schedule and controls the assets.  &lt;br/&gt;In both governance models, the EC manager monitors the operation, decides on possible rescheduling and sends the measurements to the EC members for monitoring purpose. &lt;br/&gt;In the Italian pilot, the EC manager has control over the bank account of the community and acknowledges the incentives received for sharing energy. &lt;br/&gt;In the Dutch pilot, the EC manager is responsible for settling the bill with the supplier and for the internal billing process. Additionally, the EC manager is active in the communication of the load profile of the EC to the DSO and in the process of offering flexibility services to the DSO.&lt;br/&gt;In the Portuguese pilot, the EC manager can take a more passive or more active role in the EC, depending on which entity makes the scheduling for the batteries. If the EC manager optimizes the scheduling of the batteries, then it is an active entity which considers community goals and participation in flexibility or in mFRR in the optimization. Otherwise, it plays a passive role, collecting and processes data only.&lt;br/&gt;This role is also responsible, in the Portuguese pilot, for exchanging money from energy sharing for Municipality vouchers to be distributed among EC members.</description>
+      <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+      <name>EC Manager</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>Distribution System Operators (DSO) are responsible for distribution and management of energy, starting at the TSO substations to the points of consumption. &lt;br/&gt;The DSO plays an integral role in the management of energy communities. In the pilots in Italy, Belgium and Portugal, the DSO provides the official measurements of the consumption and injection data of EC members. Depending on country specific regulations and the configuration of the EC, the measurements are used in an internal billing process or for the billing process through a supplier. &lt;br/&gt;In the Dutch pilot, the DSO does not provide the official measurements, but they are collected by a measurement company. The DSO then receives the data and drafts a bill for the grid usage of the EC.&lt;br/&gt;In the Italian pilot, the meter data is sent to the GSE, to compute the incentive for the shared energy, and to the suppliers of each EC Member, for the individual billing process. &lt;br/&gt;In the Belgian pilot, the DSO computes the credit points for shared energy and shares the measurements with the suppliers and with Klimaan for the internal billing process. &lt;br/&gt;&lt;br/&gt;Apart from consolidating the consumption and injection data, the DSO plays an important role in the flexibility market in the Netherlands, Italy and Portugal. The DSO evaluates the grid load and places flexibility requests, both on the DA flexibility market and on the ID flexibility market. In the Netherlands the flexibility market is managed through the platform GOPACS, in Italy and Portugal through Piclo Flex.&lt;br/&gt;&lt;br/&gt;</description>
+      <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+      <name>DSO</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The supplier is the intermediate party between the wholesale electricity market and the consumer. The supplier receives the official measurements of consumption and production and drafts a bill accordingly. &lt;br/&gt;In the Dutch pilot, the supplier has a relation to a wholeseller who is a Balance Responsible Party (BRP). The daily profile of the EC is thus sent to the supplier and deviations from this profile are bought/sold against the unbalance market price.&lt;br/&gt;</description>
+      <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+      <name>Supplier</name>
+      <type>Business</type>
+    </Actor>
+    <name>Actor Library</name>
+  </ActorLibrary>
+  <AreaLibrary>
+    <Area>
+      <description />
+      <mRID>f179bf30-d47e-4c76-86e7-7c13b2622a75</mRID>
+      <name>Use Cases U2Demo</name>
+    </Area>
+  </AreaLibrary>
+  <BusinessCaseLibrary>
+    <BusinessCase>
+      <Area>
+        <mRID>f179bf30-d47e-4c76-86e7-7c13b2622a75</mRID>
+      </Area>
+      <description />
+      <mRID>3126612c-a226-4e80-a66f-3a3bcf9554a8</mRID>
+      <name>Current Operation of the EC</name>
+    </BusinessCase>
+  </BusinessCaseLibrary>
+  <BusinessObjectLibrary>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for the next 24 hours in 15 minute intervals:&lt;/li&gt;&lt;/ul&gt;          - Forecasts: &lt;br/&gt;                 - PV production (in kWh)&lt;br/&gt;                 - Consumption (in kWh)&lt;br/&gt;                - optional: aggregated injection of the community (IT) &lt;br/&gt;                 -  Grid price of the energy (in &amp;#8364;/kWh) &lt;br/&gt;          - Schedule: &lt;br/&gt;                 - BESS: SOC in % &lt;br/&gt;                 - Heat Pump: On/Off (only in IT)&lt;br/&gt;                 - CS: charging profile (only in IT)&lt;br/&gt;&lt;br/&gt;IT: Indications as to which parts of the schedule are mandatory for flexibility services.&lt;br/&gt;</description>
+      <identifier>Info1</identifier>
+      <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+      <name>House resources scheduling</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;PV data (only for members with PV):&lt;/li&gt;&lt;/ul&gt;S_AC (VA)&lt;br/&gt;S_AC_L1 (VA)&lt;br/&gt;S_AC_L2 (VA)&lt;br/&gt;S_AC_L3 (VA)&lt;br/&gt;P_AC (W)&lt;br/&gt;P_AC_L1 (W)&lt;br/&gt;P_AC_L2 (W)&lt;br/&gt;P_AC_L3 (W)&lt;br/&gt;Q_AC (VAr)&lt;br/&gt;Q_AC_L1 (VAr)&lt;br/&gt;Q_AC_L2 (VAr)&lt;br/&gt;Q_AC_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_AC_L1 (V)&lt;br/&gt;U_AC_L2 (V)&lt;br/&gt;U_AC_L3 (V)&lt;br/&gt;I_AC_L1 (A)&lt;br/&gt;I_AC_L2 (A)&lt;br/&gt;I_AC_L3 (A)&lt;br/&gt;Ump_DC_St1 (V)&lt;br/&gt;Imp_DC_St1 (A)&lt;br/&gt;P_DC_St1 (W)&lt;br/&gt;Ump_DC_St2 (V)&lt;br/&gt;Imp_DC_St2 (A)&lt;br/&gt;P_DC_St2 (W)&lt;br/&gt;P_DC (W)&lt;br/&gt;f (Hz)&lt;br/&gt;Temperature (&amp;#186;C)&lt;br/&gt;Inverter State (Integer)&lt;br/&gt; &lt;br/&gt;&lt;ul&gt;&lt;li&gt;House data:&lt;/li&gt;&lt;/ul&gt;S_Imp (VA)&lt;br/&gt;S_Imp_L1 (VA)&lt;br/&gt;S_Imp_L2 (VA)&lt;br/&gt;S_Imp_L3 (VA)&lt;br/&gt;S_Exp (VA)&lt;br/&gt;S_Exp_L1 (VA)&lt;br/&gt;S_Exp_L2 (VA)&lt;br/&gt;S_Exp_L3 (VA)&lt;br/&gt;P_Imp (W)&lt;br/&gt;P_Imp_L1 (W)&lt;br/&gt;P_Imp_L2 (W)&lt;br/&gt;P_Imp_L3 (W)&lt;br/&gt;P_Exp (W)&lt;br/&gt;P_Exp_L1 (W)&lt;br/&gt;P_Exp_L2 (W)&lt;br/&gt;P_Exp_L3 (W)&lt;br/&gt;Q_Imp (VAr)&lt;br/&gt;Q_Imp_L1 (VAr)&lt;br/&gt;Q_Imp_L2 (VAr)&lt;br/&gt;Q_Imp_L3 (VAr)&lt;br/&gt;Q_Exp (VAr)&lt;br/&gt;Q_Exp_L1 (VAr)&lt;br/&gt;Q_Exp_L2 (VAr)&lt;br/&gt;Q_Exp_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_L1 (V)&lt;br/&gt;U_L2 (V)&lt;br/&gt;U_L3 (V)&lt;br/&gt;I_L1 (A)&lt;br/&gt;I_L2 (A)&lt;br/&gt;I_L3 (A)&lt;br/&gt;f (Hz)&lt;br/&gt; &lt;br/&gt;&lt;ul&gt;&lt;li&gt;Storage data per battery (if applicable):&lt;/li&gt;&lt;/ul&gt;SOC (%)&lt;br/&gt;Temperature (&amp;#186;C) &lt;br/&gt;S_Imp (VA)&lt;br/&gt;S_Imp_L1 (VA)&lt;br/&gt;S_Imp_L2 (VA)&lt;br/&gt;S_Imp_L3 (VA)&lt;br/&gt;S_Exp (VA)&lt;br/&gt;S_Exp_L1 (VA)&lt;br/&gt;S_Exp_L2 (VA)&lt;br/&gt;S_Exp_L3 (VA)&lt;br/&gt;P_Imp (W)&lt;br/&gt;P_Imp_L1 (W)&lt;br/&gt;P_Imp_L2 (W)&lt;br/&gt;P_Imp_L3 (W)&lt;br/&gt;P_Exp (W)&lt;br/&gt;P_Exp_L1 (W)&lt;br/&gt;P_Exp_L2 (W)&lt;br/&gt;P_Exp_L3 (W)&lt;br/&gt;Q_Imp (VAr)&lt;br/&gt;Q_Imp_L1 (VAr)&lt;br/&gt;Q_Imp_L2 (VAr)&lt;br/&gt;Q_Imp_L3 (VAr)&lt;br/&gt;Q_Exp (VAr)&lt;br/&gt;Q_Exp_L1 (VAr)&lt;br/&gt;Q_Exp_L2 (VAr)&lt;br/&gt;Q_Exp_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_L1 (V)&lt;br/&gt;U_L2 (V)&lt;br/&gt;U_L3 (V)&lt;br/&gt;I_L1 (A)&lt;br/&gt;I_L2 (A)&lt;br/&gt;I_L3 (A)&lt;br/&gt;f (Hz)&lt;br/&gt;&lt;br/&gt;- Possibly additional states of flexible assets &lt;br/&gt;</description>
+      <identifier>Info2</identifier>
+      <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+      <name>House measurements </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>The EC manager sends the information to the EC Member that a new schedule was requested.</description>
+      <identifier>Info3</identifier>
+      <mRID>269a9d5b-63a7-4e85-b7a3-68c9aa03fabf</mRID>
+      <name>Rescheduling decision</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC member (IT, BE)/ ID of the EC (NL)&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for 15 min intervals of the whole month:&lt;/li&gt;&lt;/ul&gt;               - Consumption &lt;br/&gt;               - Injection&lt;br/&gt;</description>
+      <identifier>Info4</identifier>
+      <mRID>f84a92d9-663e-4fbd-85cc-0cee5b32fd46</mRID>
+      <name>Invoice preliminary information</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Consumption measurements of the DSO (time series per 15 minutes for one or two months, depending on the contract of the EC member)&lt;/li&gt;&lt;li&gt;Price for these time steps&lt;/li&gt;&lt;li&gt;Total amount to pay&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info5</identifier>
+      <mRID>761991fb-5aa7-439c-87b4-2d710a813d44</mRID>
+      <name>Invoice for EC Member</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>- ID of the EC member &lt;br/&gt;- Time stamp &lt;br/&gt;- Time series for the whole month in 15 min. intervals: &lt;br/&gt;          - Energy injected into the grid (kWh)&lt;br/&gt;          - Renumeration for this energy (&amp;#8364;/kWh)&lt;br/&gt;- Total renumeration</description>
+      <identifier>Info6</identifier>
+      <mRID>c87ef8d6-10e1-4fb9-9e10-031c3e069045</mRID>
+      <name>Calculations for injection renumeration</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Measurements received from the DSO&lt;/li&gt;&lt;li&gt;Incentive&lt;/li&gt;&lt;li&gt;Whole incentive&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info7</identifier>
+      <mRID>27f82ce1-830f-4488-97ae-63024eaf5df8</mRID>
+      <name>Invoice with incentives</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>- ID of the EC member &lt;br/&gt;- Calculations for the incentive&lt;br/&gt;- Total incentive</description>
+      <identifier>Info8</identifier>
+      <mRID>1634d154-6b14-4b24-819b-99b48cdef1d1</mRID>
+      <name>Distribution of incentive</name>
+    </BusinessObject>
+  </BusinessObjectLibrary>
+  <CommonTermLibrary />
+  <name>Use Case Repository</name>
+  <RequirementLibrary />
+  <UseCaseLibrary>
+    <UseCase>
+      <ActorGrouping>
+        <description />
+        <FurtherActorInformation>
+          <Actor>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </Actor>
+          <Actor>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </Actor>
+          <Actor>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </Actor>
+          <Actor>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </Actor>
+          <Actor>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </Actor>
+          <description />
+        </FurtherActorInformation>
+        <name />
+      </ActorGrouping>
+      <BusinessCase>
+        <mRID>3126612c-a226-4e80-a66f-3a3bcf9554a8</mRID>
+      </BusinessCase>
+      <classification />
+      <Drawing>
+        <drawingType>use case overview</drawingType>
+        <mRID>dce74512-4502-466f-899e-c936fa105791</mRID>
+        <name>BusinessUseCase1 - overview</name>
+        <URI type="UMLDiagram">IT_ Current EC Operation\Image5.png</URI>
+      </Drawing>
+      <Drawing>
+        <drawingType>scenarios flowchart</drawingType>
+        <mRID>9d207d71-5286-406c-a93d-ef335f537bc9</mRID>
+        <name>BusinessUseCase1 - scenarios flowchart</name>
+        <URI type="UMLDiagram">IT_ Current EC Operation\Image6.png</URI>
+      </Drawing>
+      <identifier />
+      <KeyPerformanceIndicator>
+        <description>The energy literacy of the EC members shall be increased by &amp;gt;= 50% with respect to the baseline based on computations at the start of the project (D1.2, D2.3).</description>
+        <identifier>1</identifier>
+        <mRID>b247fd29-556a-4e41-9f33-dbe6f0a0ddaa</mRID>
+        <name>Energy literacy of the EC members</name>
+        <Objective>
+          <mRID>28885e33-263f-4554-bc3d-790b629feeb3</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The monetary value of increasing the use of locally generated energy is reflected in the incentive received by the community for the shared energy. The revenue generated by the DERs shall be increased by &amp;gt;=25%.</description>
+        <identifier>2</identifier>
+        <mRID>9abe7136-3ca9-426a-88c5-cc41e49ef6ff</mRID>
+        <name>Incentive</name>
+        <Objective>
+          <mRID>f8c4c97d-34df-42bb-947b-aefe0a7f42ef</mRID>
+        </Objective>
+        <Objective>
+          <mRID>f7577436-d735-44a5-9b32-c0626ed737aa</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The amount of shared energy shall be increased by &amp;gt;=30%. &lt;br/&gt;</description>
+        <identifier>3</identifier>
+        <mRID>7b6bc61a-7420-4b06-86fc-8908722dee5e</mRID>
+        <name>Amount of shared energy&#xD;
+</name>
+        <Objective>
+          <mRID>f8c4c97d-34df-42bb-947b-aefe0a7f42ef</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The self-consumption at pilot level shall be increased by &amp;gt;=15%.</description>
+        <identifier>4</identifier>
+        <mRID>4891b2e1-2019-47b5-b9a1-d815f82a47d0</mRID>
+        <name>Individual Self-consumption</name>
+        <Objective>
+          <mRID>481bd544-8f0b-4379-a775-53fd5cce0d55</mRID>
+        </Objective>
+        <Objective>
+          <mRID>cb8ac642-914c-4223-adc9-d778ad0ddd3c</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The use of distributed energy resources by active consumers shall be increased by &amp;gt;=30%.</description>
+        <identifier>5</identifier>
+        <mRID>426ab7e7-d6c5-4b25-8bed-e131bb7511d0</mRID>
+        <name>Use of DER</name>
+        <Objective>
+          <mRID>cb8ac642-914c-4223-adc9-d778ad0ddd3c</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <keywords>Italian regulations (monetary incentive scheme), batteries; heat pumps; electric vehicles, Full governance on member level</keywords>
+      <levelOfDepth />
+      <mRID>8f637324-ca03-48b5-aa3f-eda91a5aac53</mRID>
+      <name>IT: Current EC Operation</name>
+      <Narrative>
+        <completeDescription>This BUC shows the current operation of the EC in Italy. &lt;br/&gt;In this EC, each member is connected only to the distribution grid and can purchase energy from/sell energy to this grid. Each member of this EC has flexible assets, such as batteries, charging stations (CS), heat pumps (HP), PV panels and electric vehicles (EVs). These assets are managed by each EC member who can decide to follow recommendations in form of a schedule of the EC manager or not.&lt;br/&gt;The BUC consists of three stages, the day-ahead forecasting &amp;amp; scheduling phase, the operational phase and the billing &amp;amp; settlement phase. &lt;br/&gt;&lt;br/&gt;Simultaneous injection &amp;amp; consumption of energy of members of the EC is considered as &amp;quot;shared energy&amp;quot;. For this amount of energy, the EC receives a monetary incentive transferred to the bank account of the EC. The incentive is then shared among the members by rules defined in the EC contract.</completeDescription>
+        <mRID>522ba22d-a76a-4dc6-83d1-98a636b74b9f</mRID>
+        <shortDescription>This BUC shows the current operation of the EC in Italy.&lt;br/&gt;In Italy, ECs receive an incentive for shared energy. This incentive is transferred to the bank account of the community. The individual energy bills of the EC members are not affected by being part of an EC.</shortDescription>
+      </Narrative>
+      <nature>BUC</nature>
+      <Prerequisite>
+        <description>For this BUC, the following assumptions have to be fulfilled: &lt;br/&gt;- The EC has to be set up with the DSO and GSE, in order to receive the incentives for shared energy. &lt;br/&gt;- The EC members have an agreement with the EC manager such that the EC manager can access their meters to gather historical data for the forecasts and real-time data for rescheduling purposes. &lt;br/&gt;- The EC members inform the EC manager about their flexible assets and their preferences for using these. This information is necessary for the scheduling process. &lt;br/&gt;- Agreement of the EC that the EC manager has control over the EC bank account and how the incentive received from the GSE will be used inside the community.</description>
+        <mRID>e1b24f53-a279-4415-9cc7-2fcf04f13ed4</mRID>
+        <name>Preconditions</name>
+        <number>1</number>
+      </Prerequisite>
+      <prioritization />
+      <RelatedObjective>
+        <description>Through the monitoring interface, the EC members gain a more profound understanding of the PV production, their energy usage and the market prices. This aims at increasing energy literacy and understanding for the use of renewable energy and the benefits of ECs.</description>
+        <mRID>28885e33-263f-4554-bc3d-790b629feeb3</mRID>
+        <name>Increase energy literacy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through coordinating the energy use of the EC members, the amount of locally generated energy used by the community shall be increased.</description>
+        <mRID>f8c4c97d-34df-42bb-947b-aefe0a7f42ef</mRID>
+        <name>Increase amount of shared energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through coordinating the use of energy in combination with the incentive scheme, the incentive received for shared energy shall be increased.</description>
+        <mRID>f7577436-d735-44a5-9b32-c0626ed737aa</mRID>
+        <name>Increase the revenue generated by sharing energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>By using the storage systems, the use of the locally generated renewable energy shall be increased.</description>
+        <mRID>481bd544-8f0b-4379-a775-53fd5cce0d55</mRID>
+        <name>Increase use of renewables </name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through the advice given to the EC members in form of a schedule, more locally generated energy shall be used.</description>
+        <mRID>cb8ac642-914c-4223-adc9-d778ad0ddd3c</mRID>
+        <name>Increase use of locally generated energy</name>
+      </RelatedObjective>
+      <Scenario>
+        <Activity>
+          <description>The EC manager requests numerical weather prediction data through a specific API.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>1bb6eb5d-17f0-4480-8ca3-6b33fe02a147</mRID>
+          <name>01Request numerical weather prediction data</name>
+          <number>1.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager reads historical consumption and production data of the EC members and the current states of the flexible assets. The EC members gave consent for sharing this data with the EC manager.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>5920f902-9c57-4727-a6aa-d3c50e0ee28b</mRID>
+          <name>02Read historical EC member data and the current states of the flexible assets</name>
+          <number>1.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Using the numerical weather prediction data and the historical data of each member, the EC manager calculates PV production forecasts and consumption forecasts for each member.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>23c075bf-4b6d-45e5-8327-5724aeba2ae5</mRID>
+          <name>03PV and consumption forecast</name>
+          <number>1.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager requests the current market prices. These prices have an hourly resolution.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>50a6d035-4699-4e4f-8fbd-b63fbca38351</mRID>
+          <name>04Request market prices</name>
+          <number>1.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Using the hourly market prices and the PV production and consumption forecasts, the EC manager performs a scheduling of all flexible assets of the community, on the community as well as on the peer level.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>dc706bb7-c46c-4372-804b-5304b6126ac6</mRID>
+          <name>05Individual look-ahead energy resources scheduling</name>
+          <number>1.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+          </BusinessObject>
+          <description>The EC manager assembles the data to be sent to each EC member. &lt;br/&gt;An idea for the forecasts to be sent to each EC member is: &lt;br/&gt;- PV production forecast (own data)&lt;br/&gt;- consumption forecast (own data) &lt;br/&gt;- the expected aggregated injection of the other EC members&lt;br/&gt;- energy price &lt;br/&gt;Additionally, each EC member receives the schedule for their flexible assets.&lt;br/&gt;As the EC members have full governance over their flexible assets, the schedule is only an advice but they do not have to follow the schedule.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>c073ec10-358c-4d17-90a4-55db45def41a</mRID>
+          <name>06Organize information for each EC member</name>
+          <number>1.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member acknowledges the schedule of the flexible assets calculated by the EC manager and the forecasts. Each EC member has full governance over the own flexible assets and can decide to follow the schedule or not.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>4f378617-80e9-4fdc-b564-eb0fa66d0753</mRID>
+          <name>07Acknowledge the advice</name>
+          <number>1.7</number>
+          <service />
+        </Activity>
+        <description>In this scenario, the EC manager computes a forecast of the PV production, the market price to buy and sell energy and the consumption of the EC members. On this basis, a schedule is computed for the flexible assets of the EC members. The EC members receive the forecasts and the schedule. As each EC member has full governance over their own flexible assets, they only acknowledge the advice given in form of the schedules but do not have to follow the schedule.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>6f5c9812-dbce-4cde-bbcf-13f83c0d21ad</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ Current EC Operation\Image1.png</URI>
+        </Drawing>
+        <mRID>358eed4c-cccd-4407-993c-efc2071e3a88</mRID>
+        <name>01Operational planning</name>
+        <number>1</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The EC member has full governance over the own flexible assets and can use them either according to the schedule drafted by the EC manager or according to own preferences.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>40d911d4-2256-476d-8950-1b712d2b67f6</mRID>
+          <name>01Control BESS, HP, CS </name>
+          <number>2.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+          </BusinessObject>
+          <description>The consumption, production, injection and the states of the flexible assets of the EC member are being measured and stored in an appropriate way. &lt;br/&gt;Within the project, an interface will be developed, through which the EC members can see a graphical interpretation of the measurements.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationReceiver>
+          <mRID>bdd0a0bb-1a57-44de-874a-59dae3ac78f1</mRID>
+          <name>02Measurement system</name>
+          <number>2.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager receives the house measurements, processes these and stores them appropriately.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>b2585fa9-834e-4183-9242-b2d8ab2dca3d</mRID>
+          <name>03Process and store data</name>
+          <number>2.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager compares the house measurements to the schedule computed in the scheduling process.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>0c8011f1-4518-4e81-b717-d5891450f902</mRID>
+          <name>04Performance evaluation</name>
+          <number>2.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>269a9d5b-63a7-4e85-b7a3-68c9aa03fabf</mRID>
+          </BusinessObject>
+          <ChildActivity>
+            <description>The EC manager requests updated numerical weather prediction data.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>5fc77a1a-4e37-4d1f-8c32-fa063e8ab5ea</mRID>
+            <name>01Request numerical weather prediction data</name>
+            <number>2.5.1</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager reads historical consumption and production data of the EC members and the current states of the flexible assets. The EC members gave consent for sharing this data with the EC manager.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>5f6b5149-469b-4b16-8f57-d3fe89cfb87b</mRID>
+            <name>02Read historical EC member data and the current states of the flexible assets</name>
+            <number>2.5.2</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>Using the updated numerical weather prediction data and the historical data of each member, the EC manager calculates an updated PV production forecast and consumption forecast for each member.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>cffe9d6e-3dfe-453e-9aa2-ade441234022</mRID>
+            <name>03PV and consumption forecast</name>
+            <number>2.5.3</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager requests the current market prices. These prices have an hourly resolution.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>e356e421-ed90-4220-9b61-322dbe075af7</mRID>
+            <name>04Request market prices</name>
+            <number>2.5.4</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>Using the hourly market prices and the PV production and consumption forecasts, the EC manager performs a scheduling of all flexible assets of the community, on the community as well as on the peer level.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>05409a64-8c71-4a35-83de-389fffacdf9c</mRID>
+            <name>05Individual look-ahead energy resources scheduling</name>
+            <number>2.5.5</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <BusinessObject>
+              <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+            </BusinessObject>
+            <BusinessObject>
+              <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+            </BusinessObject>
+            <description>The EC manager assembles the data to be sent to each EC member.&lt;br/&gt;An idea for the forecasts to be sent to each EC member is: &lt;br/&gt;- PV production forecast (own data)&lt;br/&gt;- consumption forecast (own data) &lt;br/&gt;- the expected aggregated injection of the other EC members&lt;br/&gt;- energy price &lt;br/&gt;Additionally, each EC member receives the schedule for their flexible assets.&lt;br/&gt;The schedule is only an advice for the EC members. The EC members have full governance over their assets and can decide to follow the schedule or not.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <InformationReceiver>
+              <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+            </InformationReceiver>
+            <mRID>5c552114-22ad-4260-9dc6-8d7d0c9a9c14</mRID>
+            <name>06Organize information for each EC member</name>
+            <number>2.5.6</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC member acknowledges the schedule of the flexible assets calculated by the EC manager and the forecasts. Each EC member has full governance over the own flexible assets and can decide to follow the schedule or not.</description>
+            <event />
+            <InformationProducer>
+              <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+            </InformationProducer>
+            <mRID>efea50cb-3ba4-497e-8bc8-4e79c50a0187</mRID>
+            <name>07Acknowledge the advice</name>
+            <number>2.5.7</number>
+            <service />
+          </ChildActivity>
+          <description>The EC manager computes a new schedule based on the current states of the flexible assets and updated information on weather, prices, consumption.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <Drawing>
+            <drawingType>activities flowchart</drawingType>
+            <mRID>{3CD8C860-705B-4dc5-AA69-DC79CC080FE6}</mRID>
+            <name>Activity3 - activities flowchart</name>
+            <URI type="UMLDiagram">IT_ Current EC Operation\Image3.png</URI>
+          </Drawing>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>b28c9d3e-d9fe-44d5-adf8-fcbcc3e2c7c6</mRID>
+          <name>05Reschedule</name>
+          <number>2.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the information that the EC manager reschedules the flexible assets.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>721fb537-cf25-4c9e-979b-f60984adaa69</mRID>
+          <name>06Receive rescheduling decision</name>
+          <number>2.6</number>
+          <service />
+        </Activity>
+        <description>This scenario describes how the EC members control their flexible assets.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>21a51790-08de-4c8a-bc54-0ff2591570ac</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ Current EC Operation\Image2.png</URI>
+        </Drawing>
+        <mRID>44fe9eb8-a0c6-4cb9-8f86-ca2650f0a56f</mRID>
+        <name>02RT operation</name>
+        <number>2</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <BusinessObject>
+            <mRID>f84a92d9-663e-4fbd-85cc-0cee5b32fd46</mRID>
+          </BusinessObject>
+          <description>The DSO collects the consumption and injection data of each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationReceiver>
+          <InformationReceiver>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationReceiver>
+          <mRID>8e188b35-ee03-40a6-bd6b-905d9e8e88ee</mRID>
+          <name>01Consolidate consumption and injection data of each EC member</name>
+          <number>3.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The supplier receives the measurements from the DSO.</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <mRID>3154bfd2-8149-4c60-bf9b-ad688c9363f4</mRID>
+          <name>02Acknowledge the measurements of the DSO</name>
+          <number>3.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>761991fb-5aa7-439c-87b4-2d710a813d44</mRID>
+          </BusinessObject>
+          <description>The supplier uses the measurements of the DSO to set up a bill for each member of the EC for the consumption of the EC member.&lt;br/&gt;Depending on the contract between the EC member and the supplier, they receive the bill on a monthly or on a bimonthly basis.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>ce3d4a28-3184-49e1-a48e-e2c507543eea</mRID>
+          <name>03Set up bills</name>
+          <number>3.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member receives a bill from the supplier for the consumption (for one or two months). The bill is settled between the member and the supplier.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>8b8361df-e2ec-4012-a665-ee90eefef60c</mRID>
+          <name>04Receive and settle the bill</name>
+          <number>3.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The GSE receives the measurements of the DSO.</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>79bce94a-8f0e-42af-97b1-eaff11c32489</mRID>
+          <name>05Receive the measurements of the DSO</name>
+          <number>3.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>c87ef8d6-10e1-4fb9-9e10-031c3e069045</mRID>
+          </BusinessObject>
+          <description>The GSE calculates the renumeration for the amount each EC member injected based on the contract between the EC member and the GSE.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>b6a282da-c9ed-4e22-b6e1-fe930519adfb</mRID>
+          <name>06Calculate incentive for injection</name>
+          <number>3.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the payment and the calculations of the GSE for the energy injected into the grid.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>b7e7a764-d864-4f41-acb9-486e09e2ce53</mRID>
+          <name>07Acknowledge the renumeration</name>
+          <number>3.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Every 6 months, the GSE calculates the amount of energy shared between the EC members. This amount is the minimum amount between simultaneous consumption and injection of the EC members.</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>508324df-ab27-47ee-a195-62c0040403f5</mRID>
+          <name>08Calculate the energy shared within the community </name>
+          <number>3.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The GSE multiplies the amount of shared energy with the premium rate to calculate the incentive that the EC receives for sharing energy.</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>d6789298-9a96-4ac2-900c-7e5a8fe79497</mRID>
+          <name>09Calculate incentive </name>
+          <number>3.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>27f82ce1-830f-4488-97ae-63024eaf5df8</mRID>
+          </BusinessObject>
+          <description>The GSE sends the incentive for energy sharing to the bank account of the EC. &lt;br/&gt;In addition, the GSE provides the measurements of the DSO about the injection and the consumption of each EC member to the EC manager.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationReceiver>
+          <mRID>53bb2890-39d9-4e0a-840a-3a32d4d58b7b</mRID>
+          <name>10Send the incentive to the bank account of the community</name>
+          <number>3.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager acknowledges the calculations of the GSE, the incentive sent to the community bank account and the measurements provided by the GSE.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>cfcfb3d5-141a-415f-a781-23fadc76220d</mRID>
+          <name>11Acknowledge the incentive</name>
+          <number>3.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1634d154-6b14-4b24-819b-99b48cdef1d1</mRID>
+          </BusinessObject>
+          <description>The EC manager distributes the incentive among the EC members according to the measurements provided by the GSE about the injection and the consumption of the EC members. The distribution follows the rules established within the community, currently the distribution is primarily based on each member's contribution to the generation of the incentive.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>84248dd0-b702-40ef-a3be-d6e39b62ffa4</mRID>
+          <name>12Distribute the incentive</name>
+          <number>3.12</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the own share of the incentive granted to the whole EC and the corresponding calculations.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>c05c4b79-c1af-4be5-916d-6d3725aa8827</mRID>
+          <name>13Acknowledge the incentive</name>
+          <number>3.13</number>
+          <service />
+        </Activity>
+        <description>This scenario describes the settlement and billing process after the operation phase. The DSO consolidates the measurements once a month and sends them to the GSE and to the supplier of the EC members. The EC members receive their bill for consumption monthly or bimonthly, depending on their contract. Additionally, they receive a renumeration for their injection on a monthly basis. Every 6 months, the GSE computes the incentive for energy sharing and transfers this incentive to the community bank account. &lt;br/&gt;The monetary incentive is distributed among the members by the EC manager, the distribution rule is primarily based on each member's contribution to the generation of the incentive.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>7a08c9d3-af48-43a9-a46c-c1a7eb7e68ed</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ Current EC Operation\Image4.png</URI>
+        </Drawing>
+        <mRID>84568d39-bbb8-48aa-95a8-acce92738178</mRID>
+        <name>03Settlement and billing</name>
+        <number>3</number>
+      </Scenario>
+      <scope>This BUC described the current operation of the EC in Italy. Each member of this EC has flexible assets, such as: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;Batteries,&lt;/li&gt;&lt;li&gt;Charging stations (CS): currently these are not controllable but 2 of the 5 CS will be replaced by controllable devices which then send data hourly. This granularity can be increased through an API&lt;/li&gt;&lt;li&gt;Heat pumps (HP): can be controlled manually by setting on/off&lt;/li&gt;&lt;li&gt;PV panels,&lt;/li&gt;&lt;li&gt;Electric vehicles (EVs)&lt;/li&gt;&lt;/ul&gt;These assets are managed by each EC member who can decide to follow recommendations in form of a schedule of the EC manager or not.</scope>
+    </UseCase>
+  </UseCaseLibrary>
+</UC:UseCaseRepository>

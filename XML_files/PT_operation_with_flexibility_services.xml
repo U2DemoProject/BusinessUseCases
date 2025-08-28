@@ -1,0 +1,955 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Modsarus XML Interface based on IEC 62559-3, version 1-->
+<!--Based on IEC 62559-2 edition 1
+Generated from UML Use Case Repository with Modsarus® (EDF R&D Tool)-->
+<UC:UseCaseRepository xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016 C:\EAAddIns\Modsarus\Transformation\IEC62559-3_UC.xsd" xmlns:UC="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016">
+  <ActorLibrary>
+    <Actor>
+      <description>Distribution System Operators (DSO) are responsible for distribution and management of energy, starting at the TSO substations to the points of consumption. &lt;br/&gt;The DSO plays an integral role in the management of energy communities. In the pilots in Italy, Belgium and Portugal, the DSO provides the official measurements of the consumption and injection data of EC members. Depending on country specific regulations and the configuration of the EC, the measurements are used in an internal billing process or for the billing process through a supplier. &lt;br/&gt;In the Dutch pilot, the DSO does not provide the official measurements, but they are collected by a measurement company. The DSO then receives the data and drafts a bill for the grid usage of the EC.&lt;br/&gt;In the Italian pilot, the meter data is sent to the GSE, to compute the incentive for the shared energy, and to the suppliers of each EC Member, for the individual billing process. &lt;br/&gt;In the Belgian pilot, the DSO computes the credit points for shared energy and shares the measurements with the suppliers and with Klimaan for the internal billing process. &lt;br/&gt;&lt;br/&gt;Apart from consolidating the consumption and injection data, the DSO plays an important role in the flexibility market in the Netherlands, Italy and Portugal. The DSO evaluates the grid load and places flexibility requests, both on the DA flexibility market and on the ID flexibility market. In the Netherlands the flexibility market is managed through the platform GOPACS, in Italy and Portugal through Piclo Flex.&lt;br/&gt;&lt;br/&gt;</description>
+      <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+      <name>DSO</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>Piclo Flex is a platform used in Italy (in the area of the Vallevignale pilot of the U2Demo project) and Portugal for providing flexibility services. The DSO requests flexibility through this platform and BSPs or ECs can answer to this flexibility request.&lt;br/&gt;In Italy, not all regions are covered through the Piclo Flex platform. Other platforms and initiatives in Italy include the MLF (GME), MiNDFlex (Unareti), RomeFlex, among others.</description>
+      <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+      <name>Piclo Flex</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC member is an entity in the community which can act as a prosumer or a consumer. Depending on the governance model of the EC, the EC member has an active role and can control the own assets or has a passive role in which the EC member does not control these assets.</description>
+      <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+      <name>EC Member</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC manager has a versatile role in the ECs. &lt;br/&gt;In the case of the Italian and Belgian pilot, the EC manager collects the data needed for forecasting algorithms and calculates the forecast. Additionally, the EC manager creates a schedule for the flexible assets and gives advice to the EC members to guide their energy consumption behavior. &lt;br/&gt;In the Italian pilot, the flexible assets are under the governance of each EC member. In this case, the EC manager schedules these assets and gives the result as an advice to the members. &lt;br/&gt;In the Belgian pilot, the EC manager has control over the flexible assets, creates the schedule and controls the assets.  &lt;br/&gt;In both governance models, the EC manager monitors the operation, decides on possible rescheduling and sends the measurements to the EC members for monitoring purpose. &lt;br/&gt;In the Italian pilot, the EC manager has control over the bank account of the community and acknowledges the incentives received for sharing energy. &lt;br/&gt;In the Dutch pilot, the EC manager is responsible for settling the bill with the supplier and for the internal billing process. Additionally, the EC manager is active in the communication of the load profile of the EC to the DSO and in the process of offering flexibility services to the DSO.&lt;br/&gt;In the Portuguese pilot, the EC manager can take a more passive or more active role in the EC, depending on which entity makes the scheduling for the batteries. If the EC manager optimizes the scheduling of the batteries, then it is an active entity which considers community goals and participation in flexibility or in mFRR in the optimization. Otherwise, it plays a passive role, collecting and processes data only.&lt;br/&gt;This role is also responsible, in the Portuguese pilot, for exchanging money from energy sharing for Municipality vouchers to be distributed among EC members.</description>
+      <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+      <name>EC Manager</name>
+      <type>Business</type>
+    </Actor>
+    <name>Actor Library</name>
+  </ActorLibrary>
+  <AreaLibrary>
+    <Area>
+      <description />
+      <mRID>5352536a-7e39-479f-8d1e-9a885b54a631</mRID>
+      <name>Use Cases U2Demo</name>
+    </Area>
+  </AreaLibrary>
+  <BusinessCaseLibrary>
+    <BusinessCase>
+      <Area>
+        <mRID>5352536a-7e39-479f-8d1e-9a885b54a631</mRID>
+      </Area>
+      <description />
+      <mRID>d9569d72-94ae-4b96-84a6-fd4e656abb4f</mRID>
+      <name>Operation of the EC with flexibility/ ancillary services</name>
+    </BusinessCase>
+  </BusinessCaseLibrary>
+  <BusinessObjectLibrary>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Flexibility Request ID&lt;/li&gt;&lt;li&gt;Flexibility Zone ID&lt;/li&gt;&lt;li&gt;Service Type (e.g Secure)&lt;/li&gt;&lt;li&gt;Flexibility Direction (Reduce/Increase Consumption and Reduce/Increase Generation)&lt;/li&gt;&lt;li&gt;Service Window (Start-time timestamp, end-time timestamp)&lt;/li&gt;&lt;li&gt;Utilization fee (&amp;#8364;/MWh)&lt;/li&gt;&lt;li&gt;Availability fee (&amp;#8364;/MW/h)&lt;/li&gt;&lt;li&gt;Maximum runtime (min)&lt;/li&gt;&lt;li&gt;Response time (min)&lt;/li&gt;&lt;li&gt;Service recovery time (min)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info1</identifier>
+      <mRID>99422869-3c0e-4219-856b-e1282b075b43</mRID>
+      <name>PT Future EC operation with flexibility services: Flexibility Request</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;List of flexibility requests published in PICLO&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info2</identifier>
+      <mRID>5cfe1fb0-0423-48c2-839c-88a6e938693c</mRID>
+      <name>PT Future EC operation with flexibility services: Aggregated flexibility requests list</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Flexibility Request ID&lt;/li&gt;&lt;li&gt;EC ID&lt;/li&gt;&lt;li&gt;Maximum runtime (min)&lt;/li&gt;&lt;li&gt;Response time (min)&lt;/li&gt;&lt;li&gt;Service recovery time (min)&lt;/li&gt;&lt;li&gt;Reference value (MW)&lt;/li&gt;&lt;li&gt;Bid on flexible power (MW)&lt;/li&gt;&lt;li&gt;Bid on utilization fee (&amp;#8364;/MWh)&lt;/li&gt;&lt;li&gt;Bid on availability fee (&amp;#8364;/MW/h)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info3</identifier>
+      <mRID>c13cb8f2-e36f-4351-9c50-754934738fd7</mRID>
+      <name>PT Future EC operation with flexibility services: Response to flexibility request</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Flexibility Request ID&lt;/li&gt;&lt;li&gt;List of EC IDs for the flexibility request cleared&lt;/li&gt;&lt;/ul&gt;          - EC ID&lt;br/&gt;          - Flexible power cleared (MW)&lt;br/&gt;          - Utilization fee cleared (&amp;#8364;/MWh)&lt;br/&gt;          - Availability fee cleared (&amp;#8364;/MW/h)</description>
+      <identifier>Info4</identifier>
+      <mRID>cacaa343-412d-4a78-b9e1-6279f8c88270</mRID>
+      <name>PT Future EC operation with flexibility services: Flexibility Market Clearing Results&#xD;
+</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;List of EC IDs validated&lt;/li&gt;&lt;/ul&gt;        - EC ID&lt;br/&gt;        - Validation status (Passed, Failed, Passed with lower (updated) flexible power)&lt;br/&gt;        - Validated flexible power (MW)</description>
+      <identifier>Info5</identifier>
+      <mRID>84b04c9e-a82c-4f9d-a23b-f7729dd7c501</mRID>
+      <name>PT Future EC operation with flexibility services: Validation of market results &#xD;
+</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC ID&lt;/li&gt;&lt;li&gt;Flexibility Request ID&lt;/li&gt;&lt;li&gt;Flexibility Zone ID&lt;/li&gt;&lt;li&gt;Service Type (e.g Secure)&lt;/li&gt;&lt;li&gt;Flexibility Direction (Reduce/Increase Consumption and Reduce/Increase Generation)&lt;/li&gt;&lt;li&gt;Service Window (Start-time timestamp, end-time timestamp)&lt;/li&gt;&lt;li&gt;Validated flexible power (MW)&lt;/li&gt;&lt;li&gt;Utilization fee cleared (&amp;#8364;/MWh)&lt;/li&gt;&lt;li&gt;Availability fee cleared (&amp;#8364;/MW/h)&lt;/li&gt;&lt;li&gt;Maximum runtime (min)&lt;/li&gt;&lt;li&gt;Response time (min)&lt;/li&gt;&lt;li&gt;Service recovery time (min)&lt;/li&gt;&lt;li&gt;Reference value (MW)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info6</identifier>
+      <mRID>111d3e99-25e1-4aaf-88bd-9368a7e19df7</mRID>
+      <name>PT Future EC operation with flexibility services: EC results Flexibility Market&#xD;
+</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Time-series for the next 24 hours in 15 min steps:&lt;/li&gt;&lt;/ul&gt;                 - PV production (kWh)&lt;br/&gt;                 - Consumption (kWh)</description>
+      <identifier>Info7</identifier>
+      <mRID>24b75238-9739-4e14-85e7-26be2992c949</mRID>
+      <name>PT Future EC operation member level: Forecasts</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for the day in 15 min intervals:&lt;/li&gt;&lt;/ul&gt;                   - Retailer price (&amp;#8364;/kWh)&lt;br/&gt;                   - Internal EC price (&amp;#8364;/kWh)&lt;br/&gt;</description>
+      <identifier>Info8</identifier>
+      <mRID>3b51f1c6-5ef5-4d8d-b945-ded3ebbd2bda</mRID>
+      <name>PT Future EC operation member level: Electricity price information Model 3</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Time-series for the next 24 hours&lt;/li&gt;&lt;/ul&gt;         - PV Production per 15-min (kWh)&lt;br/&gt;         - Consumption per 15-min (kWh)&lt;br/&gt;         - Battery - State of Charge (%)</description>
+      <identifier>Info9</identifier>
+      <mRID>cd6372d5-8d9c-4251-b0e4-19813a9eb796</mRID>
+      <name>PT Future EC operation member level: House Resources Scheduling</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for the day in 15 min intervals:&lt;/li&gt;&lt;/ul&gt;         - Retailer price (&amp;#8364;/kWh)</description>
+      <identifier>Info10</identifier>
+      <mRID>c725b914-b7ab-4c7b-8c73-fcf4d4096500</mRID>
+      <name>PT Future EC operation member level: Electricity price information  Models 4,5,6</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Time series for the day in 15 min intervals:&lt;/li&gt;&lt;/ul&gt;                 - Offer quantity (kWh)&lt;br/&gt;                 - Offer price (&amp;#8364;/kWh)&lt;br/&gt;                 - Bid quantity (kWh)&lt;br/&gt;                 - Bid price (&amp;#8364;/kWh)</description>
+      <identifier>Info11</identifier>
+      <mRID>75d0dd2c-5634-4e4b-81fb-31816ac1f14e</mRID>
+      <name>PT Future EC operation member level: Offers and bids information Model 4</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Time series for the day in 15 min intervals:&lt;/li&gt;&lt;/ul&gt;         - Offer quantity cleared (kWh)&lt;br/&gt;         - Offer price cleared (&amp;#8364;/kWh)&lt;br/&gt;         - Bid quantity cleared (kWh)&lt;br/&gt;         - Bid price cleared (&amp;#8364;/kWh)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Total amount to pay (&amp;#8364;)&lt;/li&gt;&lt;li&gt;Total amount to be remunerated (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info12</identifier>
+      <mRID>780e63e1-c2a3-43a6-85cb-1a547c2c4678</mRID>
+      <name>PT Future EC operation member level: Energy Sharing Market Clearing Results</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Timestamp&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;PV:&lt;/li&gt;&lt;/ul&gt;         - S_AC (VA)&lt;br/&gt;         - S_AC_L1 (VA)&lt;br/&gt;         - S_AC_L2 (VA)&lt;br/&gt;         - S_AC_L3 (VA)&lt;br/&gt;         - P_AC (W)&lt;br/&gt;         - P_AC_L1 (W)&lt;br/&gt;         - P_AC_L2 (W)&lt;br/&gt;         - P_AC_L3 (W)&lt;br/&gt;         - Q_AC (VAr)&lt;br/&gt;         - Q_AC_L1 (VAr)&lt;br/&gt;         - Q_AC_L2 (VAr)&lt;br/&gt;         - Q_AC_L3 (VAr)&lt;br/&gt;         - PF_L1 (Real)&lt;br/&gt;         - PF_L2 (Real)&lt;br/&gt;         - PF_L3 (Real)&lt;br/&gt;         - U_AC_L1 (V)&lt;br/&gt;         - U_AC_L2 (V)&lt;br/&gt;         - U_AC_L3 (V)&lt;br/&gt;         - I_AC_L1 (A)&lt;br/&gt;         - I_AC_L2 (A)&lt;br/&gt;         - I_AC_L3 (A)&lt;br/&gt;         - Ump_DC_St1 (V)&lt;br/&gt;         - Imp_DC_St1 (A)&lt;br/&gt;         - P_DC_St1 (W)&lt;br/&gt;         - Ump_DC_St2 (V)&lt;br/&gt;         - Imp_DC_St2 (A)&lt;br/&gt;         - P_DC_St2 (W)&lt;br/&gt;         - P_DC (W)&lt;br/&gt;         - f (Hz)&lt;br/&gt;         - Temperature (&amp;#186;C)&lt;br/&gt;         - Inverter State (Integer)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;House&lt;/li&gt;&lt;/ul&gt;         - S_Imp (VA)&lt;br/&gt;         - S_Imp_L1 (VA)&lt;br/&gt;         - S_Imp_L2 (VA)&lt;br/&gt;         - S_Imp_L3 (VA)&lt;br/&gt;         - S_Exp (VA)&lt;br/&gt;         - S_Exp_L1 (VA)&lt;br/&gt;         - S_Exp_L2 (VA)&lt;br/&gt;         - S_Exp_L3 (VA)&lt;br/&gt;         - P_Imp (W)&lt;br/&gt;         - P_Imp_L1 (W)&lt;br/&gt;         - P_Imp_L2 (W)&lt;br/&gt;         - P_Imp_L3 (W)&lt;br/&gt;         - P_Exp (W)&lt;br/&gt;         - P_Exp_L1 (W)&lt;br/&gt;         - P_Exp_L2 (W)&lt;br/&gt;         - P_Exp_L3 (W)&lt;br/&gt;         - Q_Imp (VAr)&lt;br/&gt;         - Q_Imp_L1 (VAr)&lt;br/&gt;         - Q_Imp_L2 (VAr)&lt;br/&gt;         - Q_Imp_L3 (VAr)&lt;br/&gt;         - Q_Exp (VAr)&lt;br/&gt;         - Q_Exp_L1 (VAr)&lt;br/&gt;         - Q_Exp_L2 (VAr)&lt;br/&gt;         - Q_Exp_L3 (VAr)&lt;br/&gt;         - PF_L1 (Real)&lt;br/&gt;         - PF_L2 (Real)&lt;br/&gt;         - PF_L3 (Real)&lt;br/&gt;         - U_L1 (V)&lt;br/&gt;         - U_L2 (V)&lt;br/&gt;         - U_L3 (V)&lt;br/&gt;         - I_L1 (A)&lt;br/&gt;         - I_L2 (A)&lt;br/&gt;         - I_L3 (A)&lt;br/&gt;         - f (Hz)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;BESS&lt;/li&gt;&lt;/ul&gt;         - SOC (%)&lt;br/&gt;         - Temperature (&amp;#186;C) &lt;br/&gt;         - S_Imp (VA)&lt;br/&gt;         - S_Imp_L1 (VA)&lt;br/&gt;         - S_Imp_L2 (VA)&lt;br/&gt;         - S_Imp_L3 (VA)&lt;br/&gt;         - S_Exp (VA)&lt;br/&gt;         - S_Exp_L1 (VA)&lt;br/&gt;         - S_Exp_L2 (VA)&lt;br/&gt;         - S_Exp_L3 (VA)&lt;br/&gt;         - P_Imp (W)&lt;br/&gt;         - P_Imp_L1 (W)&lt;br/&gt;         - P_Imp_L2 (W)&lt;br/&gt;         - P_Imp_L3 (W)&lt;br/&gt;         - P_Exp (W)&lt;br/&gt;         - P_Exp_L1 (W)&lt;br/&gt;         - P_Exp_L2 (W)&lt;br/&gt;         - P_Exp_L3 (W)&lt;br/&gt;         - Q_Imp (VAr)&lt;br/&gt;         - Q_Imp_L1 (VAr)&lt;br/&gt;         - Q_Imp_L2 (VAr)&lt;br/&gt;         - Q_Imp_L3 (VAr)&lt;br/&gt;         - Q_Exp (VAr)&lt;br/&gt;         - Q_Exp_L1 (VAr)&lt;br/&gt;         - Q_Exp_L2 (VAr)&lt;br/&gt;         - Q_Exp_L3 (VAr)&lt;br/&gt;         - PF_L1 (Real)&lt;br/&gt;         - PF_L2 (Real)&lt;br/&gt;         - PF_L3 (Real)&lt;br/&gt;         - U_L1 (V)&lt;br/&gt;         - U_L2 (V)&lt;br/&gt;         - U_L3 (V)&lt;br/&gt;         - I_L1 (A)&lt;br/&gt;         - I_L2 (A)&lt;br/&gt;         - I_L3 (A)&lt;br/&gt;         - f (Hz)&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</description>
+      <identifier>Info13</identifier>
+      <mRID>8166d7e6-f4c8-4a52-a896-2aa3b6b87bb0</mRID>
+      <name>PT Future EC operation member level: House Measurements</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC ID&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Availability payment computation:&lt;/li&gt;&lt;/ul&gt;         - Validated flexible power (MW)&lt;br/&gt;         - Number of available hours (h)&lt;br/&gt;         - Availability fee cleared (&amp;#8364;/MW/h)&lt;br/&gt;         - Total availability remuneration (&amp;#8364;)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Utilization payment computation&lt;/li&gt;&lt;/ul&gt;        - List of activation requests (Start-time timestamp, End-time timestamp)&lt;br/&gt;        - Total delivered flexibility (MWh)&lt;br/&gt;        - Utilization fee cleared (&amp;#8364;/MWh)&lt;br/&gt;        - Total utilization remuneration (&amp;#8364;)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Total remuneration for flexibility (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info14</identifier>
+      <mRID>c14c7b97-2400-4aaf-9762-b2ffc0812295</mRID>
+      <name>PT Future EC operation with flexibility services: EC manager Flexibility payment &#xD;
+</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC member ID&lt;/li&gt;&lt;li&gt;Total payment for flexibility in vouchers (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;         - Member availability remuneration (&amp;#8364;)&lt;br/&gt;         - Member utilization remuneration (&amp;#8364;)&lt;br/&gt;&lt;br/&gt;</description>
+      <identifier>Info15</identifier>
+      <mRID>d8b869b7-5563-43cd-b052-75933bb56bb4</mRID>
+      <name>PT Future EC operation with flexibility services: EC member Flexibility payment &#xD;
+</name>
+    </BusinessObject>
+  </BusinessObjectLibrary>
+  <CommonTermLibrary />
+  <name>Use Case Repository</name>
+  <RequirementLibrary />
+  <UseCaseLibrary>
+    <UseCase>
+      <ActorGrouping>
+        <description />
+        <FurtherActorInformation>
+          <Actor>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </Actor>
+          <Actor>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </Actor>
+          <Actor>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </Actor>
+          <Actor>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </Actor>
+          <description />
+        </FurtherActorInformation>
+        <name />
+      </ActorGrouping>
+      <BusinessCase>
+        <mRID>d9569d72-94ae-4b96-84a6-fd4e656abb4f</mRID>
+      </BusinessCase>
+      <classification />
+      <Drawing>
+        <drawingType>use case overview</drawingType>
+        <mRID>5cc43974-b549-4a2e-bf85-7f423730d439</mRID>
+        <name>BusinessUseCase1 - overview</name>
+        <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image6.png</URI>
+      </Drawing>
+      <Drawing>
+        <drawingType>scenarios flowchart</drawingType>
+        <mRID>9d554594-5a24-4cb4-a135-91e9f8bc0c19</mRID>
+        <name>BusinessUseCase1 - scenarios flowchart</name>
+        <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image7.png</URI>
+      </Drawing>
+      <identifier />
+      <KeyPerformanceIndicator>
+        <description>&lt;i&gt;Increase the energy literacy &amp;gt;=&lt;/i&gt; &lt;i&gt;50%&lt;/i&gt;</description>
+        <identifier>1</identifier>
+        <mRID>298b9908-e989-4588-8670-f618729d1ffe</mRID>
+        <name>Energy literacy of the EC members</name>
+        <Objective>
+          <mRID>f2adb907-59f8-429f-8203-7888c82a0b6f</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>&lt;i&gt;Reduce energy invoice: &amp;gt;= 10%&lt;/i&gt;</description>
+        <identifier>2</identifier>
+        <mRID>b17a1a74-dd37-43e7-88cd-e7153a752389</mRID>
+        <name>Energy bill of the EC members </name>
+        <Objective>
+          <mRID>08ce07be-3013-4f74-9912-42f9f394f3e2</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>&lt;i&gt;Increase in revenue created from DER &amp;gt;= 25% &lt;/i&gt;</description>
+        <identifier>3</identifier>
+        <mRID>df17b129-7da7-494a-97ea-6b73c288df7e</mRID>
+        <name>vouchers</name>
+        <Objective>
+          <mRID>08ce07be-3013-4f74-9912-42f9f394f3e2</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>Increase in the volume of energy shared &amp;gt;= 30%</description>
+        <identifier>4</identifier>
+        <mRID>b427b7ba-ac13-4753-830f-eb260e46b1e0</mRID>
+        <name>Amount of energy shared</name>
+        <Objective>
+          <mRID>b9b0f8de-93e7-43ea-a219-1f358b184cfc</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>&lt;i&gt;Increase the number of active consumers, willing to engage in ECs and/or DR programs: &amp;gt;=&lt;/i&gt; &lt;i&gt;25%&lt;/i&gt;</description>
+        <identifier>5</identifier>
+        <mRID>0b4093aa-cd27-41d2-ac2a-2b1dd7c62216</mRID>
+        <name>Number of active consumers in Energy Community</name>
+        <Objective>
+          <mRID>b9b0f8de-93e7-43ea-a219-1f358b184cfc</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>Reduction of peak consumption by the participation in DR programs &amp;gt;= 15%</description>
+        <identifier>6</identifier>
+        <mRID>25450191-0d0f-495b-8ab0-ebd68dd97475</mRID>
+        <name>Peak Consumption Reduction</name>
+        <Objective>
+          <mRID>b9b0f8de-93e7-43ea-a219-1f358b184cfc</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>Avoid renewables production curtailment: &amp;gt;= 25% (at pilot level)</description>
+        <identifier>7</identifier>
+        <mRID>e4ccc428-a57d-4578-9f2a-66d7a36c52c3</mRID>
+        <name>Renewables production curtailment</name>
+        <Objective>
+          <mRID>b9b0f8de-93e7-43ea-a219-1f358b184cfc</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>&lt;i&gt;Increase of collective self-consumption in ECs: &amp;gt;= 15% (at pilot level)&lt;/i&gt;</description>
+        <identifier>8</identifier>
+        <mRID>bb789879-3681-4009-b55b-f7e2e7f7697b</mRID>
+        <name>Self-consumption</name>
+        <Objective>
+          <mRID>5063651b-1c34-4bfd-9d0c-b8d0ab65427f</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>&lt;i&gt;Increase in the use of DERs by active consumers &amp;gt;= 30%&lt;/i&gt;</description>
+        <identifier>9</identifier>
+        <mRID>4b9577fc-6742-4de2-a5d6-37ea78891a2c</mRID>
+        <name>Use of DERs</name>
+        <Objective>
+          <mRID>5063651b-1c34-4bfd-9d0c-b8d0ab65427f</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <keywords>Portuguese regulations,    Flexibility services,    Energy sharing models (predefined pricing and internal auction model),   Battery scheduling on manager level,   Battery scheduling according to members preferences,   Batteries on member level</keywords>
+      <levelOfDepth />
+      <mRID>32f05b54-bb96-43ba-a26f-cbfe1021b40c</mRID>
+      <name>PT: Future EC operation with flexibility services</name>
+      <Narrative>
+        <completeDescription>This BUC expands the BUC &amp;#8220;Current EC operation&lt;i&gt;&amp;#8221;&lt;/i&gt; for a possible future scenario of the EC. In this BUC batteries will be available and connected to the EC member level. Scheduling will be optimized by the EC manager according to high-level preferences of the EC members (e.g. cost savings), the energy sharing models available and the flexibility contracts established.</completeDescription>
+        <mRID>50820a03-5e08-468c-badd-01321b1440d3</mRID>
+        <shortDescription>This Business use case (BUC) models a possible future scenario of the EC in Portugal. In this BUC the community is assumed to be capable of participating in flexibility markets.</shortDescription>
+      </Narrative>
+      <nature>BUC</nature>
+      <Prerequisite>
+        <description>&lt;ol&gt;&lt;li&gt;Batteries at the member level but operated by the EC manager&lt;/li&gt;&lt;li&gt;Flexible loads (smart appliances) at the EC member level&lt;/li&gt;&lt;li&gt;Flexibility can be provided by the actuation of the batteries and also by the actuation of the flexible loads&lt;/li&gt;&lt;li&gt;Contracts established have two price components: a price for making capacity available (&amp;#8364;/MW/h) and a price for energy actually delivered upon activation (&amp;#8364;/MWh).&lt;/li&gt;&lt;li&gt;Actuation from batteries and flexible loads is not optional when activation is requested.&lt;/li&gt;&lt;/ol&gt;</description>
+        <mRID>3dc92fef-7f48-4fc1-91a5-3be7b668f3d5</mRID>
+        <name>Assumptions</name>
+        <number>1</number>
+      </Prerequisite>
+      <prioritization />
+      <RelatedObjective>
+        <description />
+        <mRID>f2adb907-59f8-429f-8203-7888c82a0b6f</mRID>
+        <name>Increase energy literacy </name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>08ce07be-3013-4f74-9912-42f9f394f3e2</mRID>
+        <name>Reduce energy invoice</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>b9b0f8de-93e7-43ea-a219-1f358b184cfc</mRID>
+        <name>User Engagement in DR</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>5063651b-1c34-4bfd-9d0c-b8d0ab65427f</mRID>
+        <name>Increase use of renewables </name>
+      </RelatedObjective>
+      <Scenario>
+        <Activity>
+          <BusinessObject>
+            <mRID>99422869-3c0e-4219-856b-e1282b075b43</mRID>
+          </BusinessObject>
+          <description>Identifies a network constraint for a specific network location (zone) and the required type of flexibility w.r.t. capacity needed, location, voltage level, duration, and required flexibility type (e.g. restore). Then sends this request to PICLO for Flexibility Service Providers (FSPs) to bid in a new auction to provide that flexibility.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </InformationReceiver>
+          <mRID>0463b4fd-5b2c-4ac2-afdf-e8c46de993f8</mRID>
+          <name>01. Flexibility request</name>
+          <number>1.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>5cfe1fb0-0423-48c2-839c-88a6e938693c</mRID>
+          </BusinessObject>
+          <description>Make the flexibility requests from the DSO public in PICLO platform.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationReceiver>
+          <mRID>d56b3105-0b2d-4b08-b4c0-47eb7feb7a21</mRID>
+          <name>02. Publish requests</name>
+          <number>1.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Acknowledge the flexibility requests made by the DSO</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>256ece92-8d8e-4b07-860c-7f1ce37aec33</mRID>
+          <name>03. Acknowledge flexibility requests</name>
+          <number>1.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Requests Numerical Weather Prediction data using a specific API and meter data from the DSO</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>00f580fc-a074-4e7f-a139-203e07f268a2</mRID>
+          <name>04. Request NWP and meter data</name>
+          <number>1.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Forecasts the consumption and production based on historical data.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>e508d5d8-4252-4122-a6a2-f202a6411bea</mRID>
+          <name>05. PV and Consumption Forecast</name>
+          <number>1.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Compute the available flexibility headroom from EC batteries</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>7f60fcd2-ef99-4681-8d50-74fee00b3213</mRID>
+          <name>06. Compute available flexibility headroom from EC batteries</name>
+          <number>1.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Communicates the auction details to the EC members and requests flexibility offers (capacity, duration) from them.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>26d1272a-4e4f-4f2c-8fc3-686cd7bec588</mRID>
+          <name>07. Request confirmation of participation on flexibility from EC members:</name>
+          <number>1.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>c13cb8f2-e36f-4351-9c50-754934738fd7</mRID>
+          </BusinessObject>
+          <description>Aggregates the participation offers from EC members and computes the aggregated flexibility that can submitted as an offer to PICLO. The offer has a bid on flexible power (MW) and two price components: a price for making capacity available (&amp;#8364;/MW/h) and a price for energy actually delivered upon activation (&amp;#8364;/MWh)&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </InformationReceiver>
+          <mRID>161c309b-6c69-481a-9dff-64c7058840d7</mRID>
+          <name>08. Aggregation and placement of selling offer</name>
+          <number>1.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>cacaa343-412d-4a78-b9e1-6279f8c88270</mRID>
+          </BusinessObject>
+          <description>evaluates all offers and selects winning bids based on economic merit.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationReceiver>
+          <mRID>527c4402-d956-4fcb-9379-81bd23dccb53</mRID>
+          <name>09. Market Clearing</name>
+          <number>1.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>84b04c9e-a82c-4f9d-a23b-f7729dd7c501</mRID>
+          </BusinessObject>
+          <description>confirms adequacy of flexibility offers and approves the auction results obtained. Otherwise, if the minimum requirements are not met the auction results are not approved.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </InformationReceiver>
+          <mRID>59307853-8912-439f-83fd-38b8785be766</mRID>
+          <name>10. Validation of Market results</name>
+          <number>1.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>111d3e99-25e1-4aaf-88bd-9368a7e19df7</mRID>
+          </BusinessObject>
+          <description>removes flexibility request and if minimum requirements are not met, a new market clearing is carried out.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>453c4b4b-ea9b-40eb-acc5-bba2793b9042</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationReceiver>
+          <mRID>65926195-195e-4e16-b79c-b5c7b2d16c59</mRID>
+          <name>11. Process Market results</name>
+          <number>1.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager receives information from the DSO regarding the approval or rejection of the flexibility offer. If approved, the EC manager signs a bilateral contract with the DSO and communicates the contract details to the EC members</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>a2130151-1b56-4391-837e-3b80cf50d9fe</mRID>
+          <name>12. Signing of  bilateral contract with DSO and organization of information to be sent to the EC Members</name>
+          <number>1.12</number>
+          <service />
+        </Activity>
+        <description>In this scenario, there are three participating roles: DSO, PICLO platform and EC manager. This scenario models the process of: (i) creating a flexibility auction, (ii)  participating in the auction and (iii) contractualizing flexibility between ECs and the DSO through the PICLO platform.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>b0a6831a-1806-4281-a78d-f3225438d94a</mRID>
+          <name>Scenario3 - activities flowchart</name>
+          <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image1.png</URI>
+        </Drawing>
+        <mRID>19e29179-96a7-45dc-9ad9-1416770d3bf7</mRID>
+        <name>10 Contractual Phase</name>
+        <number>1</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>Request Numerical Weather Prediction using an API.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>9af31de4-2a9d-49da-bfa9-494eb2f79dc2</mRID>
+          <name>01. Request NWP Data</name>
+          <number>2.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>24b75238-9739-4e14-85e7-26be2992c949</mRID>
+          </BusinessObject>
+          <description>Forecast consumption and production based on historical data.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>ebaa957a-4a4a-45c6-bc41-0d0195589644</mRID>
+          <name>02. PV and Consumption Forecast</name>
+          <number>2.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>3b51f1c6-5ef5-4d8d-b945-ded3ebbd2bda</mRID>
+          </BusinessObject>
+          <description>Request the retailer price for the electricity to be bought from the grid and set the EC internal price.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>0f169eb2-fa44-41b6-83ec-2bdf45311636</mRID>
+          <name>03. Request Retailer price and set EC internal price</name>
+          <number>2.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>cd6372d5-8d9c-4251-b0e4-19813a9eb796</mRID>
+          </BusinessObject>
+          <description>Optimization of energy resources per house considering different objective functions based on high-level priorities, such as cost savings, green energy and comfort (decision support methods)&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationReceiver>
+          <mRID>31076e03-e15c-4f06-bb02-3919d19bbb0a</mRID>
+          <name>04. Individual Look-Ahead Energy Resources Scheduling</name>
+          <number>2.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Optimization of EC battery based on the optimization carried out for the EC members optimization</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>b6d230bb-df63-4ac6-ab44-57a547d912f8</mRID>
+          <name>05. Battery Scheduling</name>
+          <number>2.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Store scheduling data from EC members</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>9d3eb4dd-4209-41b1-924b-346e1e9c76f5</mRID>
+          <name>06. Organize scheduling information from EC members</name>
+          <number>2.6</number>
+          <service />
+        </Activity>
+        <description>In this scenario, there are two participating roles: EC manager and EC member. This scenario models the scheduling of flexible loads and batteries at the member level based on the assumption of a predefined pricing mechanism set by the EC manager for internal energy exchange. Scheduling is carried out for flexible loads by the EC member and for batteries by the EC manager based on the price of energy sharing, price set by the Supplier, weather predictions, consumption production forecasts, the high-level priorities of the EC member and the contractualized flexibility with the DSO.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>e691a95a-8678-4877-8557-d069d478b493</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image2.png</URI>
+        </Drawing>
+        <mRID>e4c267b7-fada-41e2-92fb-a5e3c447d20c</mRID>
+        <name>11 Scheduling with Energy Sharing/P2P Model 3</name>
+        <number>2</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>Request Numerical Weather Prediction using an API.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>1a843828-a572-4a4b-92ad-aa86250e94bc</mRID>
+          <name>01. Request NWP Data</name>
+          <number>3.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>24b75238-9739-4e14-85e7-26be2992c949</mRID>
+          </BusinessObject>
+          <description>Forecast consumption and production based on historical data.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>7e0add5c-772a-4f6c-91e7-da46b0c89246</mRID>
+          <name>02. PV and Consumption Forecast</name>
+          <number>3.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>c725b914-b7ab-4c7b-8c73-fcf4d4096500</mRID>
+          </BusinessObject>
+          <description>Request the retailer price for the electricity to be bought from the grid.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>b3b43b82-8b29-43de-84a0-1a02aa334446</mRID>
+          <name>03. Request Retailer price</name>
+          <number>3.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Optimize energy resources per house considering different objective functions. This optimization serves as a initial condition to get the surplus and shortages of each peer and is done based on high-level priorities, such as cost savings, green energy and comfort</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <mRID>7e575a8d-ee17-45a3-bbb0-1a60d2fb6c4a</mRID>
+          <name>04. Initial Individual Look-Ahead Energy Resources Scheduling</name>
+          <number>3.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>75d0dd2c-5634-4e4b-81fb-31816ac1f14e</mRID>
+          </BusinessObject>
+          <description>Determine the offers and bids to make to the local market (pairs of price and quantity). The offers and bids can be made by resorting to decision support methods.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationReceiver>
+          <mRID>82d06223-2a4d-46ed-9a94-8c2083e0adc9</mRID>
+          <name>05. Make offers and bids</name>
+          <number>3.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Aggregate the offers and bids for further processing.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>04b16eb5-fdfc-4cf5-8910-1c0242b95606</mRID>
+          <name>06. Aggregate offers and bids</name>
+          <number>3.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Perform market clearing based on the offers and bids made.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>32973b62-3e1e-4a49-ac1f-da16f6d0aaaa</mRID>
+          <name>07. Market Clearing</name>
+          <number>3.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>780e63e1-c2a3-43a6-85cb-1a547c2c4678</mRID>
+          </BusinessObject>
+          <description>Determine the offers and bids cleared, the corresponding members, the amount that each members needs to pay and be remunerated.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>b1461a4e-81a8-4284-875a-946fb8bfc676</mRID>
+          <name>08. Process results</name>
+          <number>3.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Acknowledge the results cleared by the market</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <mRID>8e5e85f3-87fc-412d-8815-be94bca69341</mRID>
+          <name>09. Ack. results</name>
+          <number>3.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>cd6372d5-8d9c-4251-b0e4-19813a9eb796</mRID>
+          </BusinessObject>
+          <description>Optimize energy resources per house considering the results obtained from market clearing and also the member's high-level priorities, such as cost savings, green energy and comfort.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationReceiver>
+          <mRID>47bfb79a-b8c5-44b6-a844-478538a3303b</mRID>
+          <name>10. Final Individual Look-Ahead Energy Resources Scheduling</name>
+          <number>3.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Optimization of EC battery based on the optimization carried out for the EC members optimization</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>b9de13a6-00cf-462e-aa2a-a8671a56f55f</mRID>
+          <name>11. Battery Scheduling</name>
+          <number>3.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Store scheduling data from EC members.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>74f28381-66f6-4d9b-80ac-4e7cc94fbab2</mRID>
+          <name>12. Organize scheduling information from EC members</name>
+          <number>3.12</number>
+          <service />
+        </Activity>
+        <description>In this scenario, there are two participating roles: EC manager and EC member. This scenario models the scheduling of flexible loads and batteries at the member level based on the assumption of a local market that accepts sell offers and buy bids from EC members and is cleared by the EC manager. Scheduling is carried out for flexible loads by the EC member and for batteries by the EC manager based on the prices resulting from the local market clearing, price set by the Supplier, weather predictions, consumption and production forecasts, the high-level priorities of the EC member and contractualized flexibility with the DSO.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>f1451273-0634-45b3-9959-6bb3b657c076</mRID>
+          <name>Scenario2 - activities flowchart</name>
+          <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image3.png</URI>
+        </Drawing>
+        <mRID>e24db7f4-87e9-43ee-a298-0cef8e59d235</mRID>
+        <name>11 Scheduling with Energy Sharing/P2P Model 4</name>
+        <number>3</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <BusinessObject>
+            <mRID>8166d7e6-f4c8-4a52-a896-2aa3b6b87bb0</mRID>
+          </BusinessObject>
+          <description>Get information from meters on consumption and production using an API.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>dd2096ef-5ecb-4c24-90fb-a7a72f6940e1</mRID>
+          <name>01. Measurement System</name>
+          <number>4.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Actuation of flexible loads and charge/discharge of EC member batteries according the scheduling previously defined.</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <mRID>671f2434-f441-4caa-b606-823c30ad148f</mRID>
+          <name>02. Control Flexible Loads</name>
+          <number>4.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Charge/discharge of community battery according the scheduling previously defined</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>bf369d1f-9a93-43cb-934b-ce29404dba3a</mRID>
+          <name>03. Control BESS</name>
+          <number>4.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Store measurement data</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>fb76bd40-8461-4f9b-a06d-8ec9db89fd3a</mRID>
+          <name>04. Store Measurement Data</name>
+          <number>4.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Validate the equipment correct operation based on the measurements obtained from meters and the expected control actuation on flexible loads</description>
+          <event />
+          <mRID>218a36e6-a3b7-4db6-8696-dbcd1385edbd</mRID>
+          <name>05. Validation of equipment correct operation</name>
+          <number>4.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Evaluate deviations between real and forecasted data and the corresponding impact on the previously set scheduling.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>954f25ec-7f59-4c63-8156-17ea87985645</mRID>
+          <name>06. Scheduling Performance Evaluation</name>
+          <number>4.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>request new scheduling if the deviations between real and forecasted data had a significant impact on the expected scheduling performance.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>7d233036-e3f1-4d16-a67d-c32ab79133f9</mRID>
+          <name>07. Request New Scheduling</name>
+          <number>4.7</number>
+          <service />
+        </Activity>
+        <description>In this scenario, there are two participating roles: EC manager and EC member. This scenario models the control of flexible loads and batteries at the EC member level, the validation of equipment correct operation and the scheduling of performance evaluation, which in case of significant deviation from the expected scheduling requests a new scheduling.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>4dc0d4e2-7f68-41ed-8d8c-6aa99611e2fb</mRID>
+          <name>Scenario4 - activities flowchart</name>
+          <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image4.png</URI>
+        </Drawing>
+        <mRID>3393b21c-9b93-4c7d-9587-0d478b0c8a86</mRID>
+        <name>12 Operation</name>
+        <number>4</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The DSO aggregates the events of flexibility from bilateral contract activations and aggregates monthly consumption and production data</description>
+          <event />
+          <InformationProducer>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationProducer>
+          <mRID>b6858018-ff7a-4d5b-9a6a-2292c3a04ca4</mRID>
+          <name>01. Aggregation of monthly flexibility measures and consumption and production data</name>
+          <number>5.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Considering the flexibility measures and meter data, the EC flexibility participation is computed.</description>
+          <event />
+          <InformationProducer>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationProducer>
+          <mRID>33371485-335a-4282-8405-453e2c5e75c5</mRID>
+          <name>02. Performance computation of EC flexibility participation</name>
+          <number>5.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>computes the total payment for making capacity available and for the energy actually delivered upon activation by ECs.</description>
+          <event />
+          <InformationProducer>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationProducer>
+          <mRID>7c294205-80ed-431f-9f2e-e5f9a25d113c</mRID>
+          <name>03. Computation of the payment for the flexibility measures to ECs</name>
+          <number>5.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>c14c7b97-2400-4aaf-9762-b2ffc0812295</mRID>
+          </BusinessObject>
+          <description>Pays each EC the price for for making capacity available and for the energy actually delivered upon activation.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>e89b0d79-f6aa-4cd3-aebb-289a25a34851</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationReceiver>
+          <mRID>9eeced09-84f0-49c6-a42a-10ffd974396b</mRID>
+          <name>04. Payment of flexibility services</name>
+          <number>5.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>receives payment for flexibility measures carried out by the community.</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <mRID>39c48547-bef6-48aa-b40d-755c18c98145</mRID>
+          <name>05. Ack. payment</name>
+          <number>5.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>d8b869b7-5563-43cd-b052-75933bb56bb4</mRID>
+          </BusinessObject>
+          <description>The EC manager distributes the payment received from the DSO for flexibility measures among the EC members. Distribution is carried out after exchanging the payment by vouchers for Municipality services.&lt;br/&gt;Modsarus Use Case::InstanceName=InfoInstance&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>c4bf8a21-0079-4be2-b897-7cef7dd570df</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationReceiver>
+          <mRID>8478b8cf-56d4-4296-8478-dedf185aca27</mRID>
+          <name>06. Exchange payment by vouchers and distribute payment among EC members</name>
+          <number>5.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC members receive payment from the EC manager for flexibility measures</description>
+          <event />
+          <InformationProducer>
+            <mRID>afa6675b-6f29-481c-bc42-c6a053111d4a</mRID>
+          </InformationProducer>
+          <mRID>f4dba7fa-1dc7-483f-830f-732d2fb0f863</mRID>
+          <name>07. Ack. Vouchers</name>
+          <number>5.7</number>
+          <service />
+        </Activity>
+        <description>In this scenario, there are three participating roles: DSO, EC manager and EC member. This scenario models the billing and settlement process for the payment of flexibility by contractualized between the DSO and the EC.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>6b31622d-aa9c-4687-afbb-b4829fa9e2f8</mRID>
+          <name>Scenario5 - activities flowchart</name>
+          <URI type="UMLDiagram">PT_ Future EC operation with flexibility services\Image5.png</URI>
+        </Drawing>
+        <mRID>7ce416d4-daa9-402e-a942-ea44a517b933</mRID>
+        <name>13 Settlement and Billing</name>
+        <number>5</number>
+      </Scenario>
+      <scope />
+    </UseCase>
+  </UseCaseLibrary>
+</UC:UseCaseRepository>

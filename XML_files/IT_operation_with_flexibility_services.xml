@@ -1,0 +1,1382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Modsarus XML Interface based on IEC 62559-3, version 1-->
+<!--Based on IEC 62559-2 edition 1
+Generated from UML Use Case Repository with Modsarus® (EDF R&D Tool)-->
+<UC:UseCaseRepository xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016 C:\EAAddIns\Modsarus\Transformation\IEC62559-3_UC.xsd" xmlns:UC="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016">
+  <ActorLibrary>
+    <Actor>
+      <description>Distribution System Operators (DSO) are responsible for distribution and management of energy, starting at the TSO substations to the points of consumption. &lt;br/&gt;The DSO plays an integral role in the management of energy communities. In the pilots in Italy, Belgium and Portugal, the DSO provides the official measurements of the consumption and injection data of EC members. Depending on country specific regulations and the configuration of the EC, the measurements are used in an internal billing process or for the billing process through a supplier. &lt;br/&gt;In the Dutch pilot, the DSO does not provide the official measurements, but they are collected by a measurement company. The DSO then receives the data and drafts a bill for the grid usage of the EC.&lt;br/&gt;In the Italian pilot, the meter data is sent to the GSE, to compute the incentive for the shared energy, and to the suppliers of each EC Member, for the individual billing process. &lt;br/&gt;In the Belgian pilot, the DSO computes the credit points for shared energy and shares the measurements with the suppliers and with Klimaan for the internal billing process. &lt;br/&gt;&lt;br/&gt;Apart from consolidating the consumption and injection data, the DSO plays an important role in the flexibility market in the Netherlands, Italy and Portugal. The DSO evaluates the grid load and places flexibility requests, both on the DA flexibility market and on the ID flexibility market. In the Netherlands the flexibility market is managed through the platform GOPACS, in Italy and Portugal through Piclo Flex.&lt;br/&gt;&lt;br/&gt;</description>
+      <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+      <name>DSO</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC manager has a versatile role in the ECs. &lt;br/&gt;In the case of the Italian and Belgian pilot, the EC manager collects the data needed for forecasting algorithms and calculates the forecast. Additionally, the EC manager creates a schedule for the flexible assets and gives advice to the EC members to guide their energy consumption behavior. &lt;br/&gt;In the Italian pilot, the flexible assets are under the governance of each EC member. In this case, the EC manager schedules these assets and gives the result as an advice to the members. &lt;br/&gt;In the Belgian pilot, the EC manager has control over the flexible assets, creates the schedule and controls the assets.  &lt;br/&gt;In both governance models, the EC manager monitors the operation, decides on possible rescheduling and sends the measurements to the EC members for monitoring purpose. &lt;br/&gt;In the Italian pilot, the EC manager has control over the bank account of the community and acknowledges the incentives received for sharing energy. &lt;br/&gt;In the Dutch pilot, the EC manager is responsible for settling the bill with the supplier and for the internal billing process. Additionally, the EC manager is active in the communication of the load profile of the EC to the DSO and in the process of offering flexibility services to the DSO.&lt;br/&gt;In the Portuguese pilot, the EC manager can take a more passive or more active role in the EC, depending on which entity makes the scheduling for the batteries. If the EC manager optimizes the scheduling of the batteries, then it is an active entity which considers community goals and participation in flexibility or in mFRR in the optimization. Otherwise, it plays a passive role, collecting and processes data only.&lt;br/&gt;This role is also responsible, in the Portuguese pilot, for exchanging money from energy sharing for Municipality vouchers to be distributed among EC members.</description>
+      <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+      <name>EC Manager</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC member is an entity in the community which can act as a prosumer or a consumer. Depending on the governance model of the EC, the EC member has an active role and can control the own assets or has a passive role in which the EC member does not control these assets.</description>
+      <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+      <name>EC Member</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>Piclo Flex is a platform used in Italy (in the area of the Vallevignale pilot of the U2Demo project) and Portugal for providing flexibility services. The DSO requests flexibility through this platform and BSPs or ECs can answer to this flexibility request.&lt;br/&gt;In Italy, not all regions are covered through the Piclo Flex platform. Other platforms and initiatives in Italy include the MLF (GME), MiNDFlex (Unareti), RomeFlex, among others.</description>
+      <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+      <name>Piclo Flex</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The GSE (Gestore dei Servizi Energetici) is a role exclusively in the Italian pilot. &lt;br/&gt;The GSE plays a role in the billing process. They receive the consumption and injection data from the DSO from which they calculate the monetary incentive the EC receives for shared energy. This incentive is then transferred to the bank account of the community. &lt;br/&gt;In addition, the EC members receive their renumeration for the energy injected into the grid through the GSE.</description>
+      <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+      <name>GSE</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The supplier is the intermediate party between the wholesale electricity market and the consumer. The supplier receives the official measurements of consumption and production and drafts a bill accordingly. &lt;br/&gt;In the Dutch pilot, the supplier has a relation to a wholeseller who is a Balance Responsible Party (BRP). The daily profile of the EC is thus sent to the supplier and deviations from this profile are bought/sold against the unbalance market price.&lt;br/&gt;</description>
+      <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+      <name>Supplier</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The BSP (Balance Service Provider) is a role in the Italian pilot site. Through the BSP, the EC can participate in flexibility services. The BSP reads the flexibility requests of the DSO on Piclo Flex, evaluates the possible flexibility of the EC members, controls the assets of the EC members in order to provide the flexibility and communicates with the platform Piclo Flex.</description>
+      <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+      <name>BSP</name>
+      <type>Business</type>
+    </Actor>
+    <name>Actor Library</name>
+  </ActorLibrary>
+  <AreaLibrary>
+    <Area>
+      <description />
+      <mRID>f179bf30-d47e-4c76-86e7-7c13b2622a75</mRID>
+      <name>Use Cases U2Demo</name>
+    </Area>
+  </AreaLibrary>
+  <BusinessCaseLibrary>
+    <BusinessCase>
+      <Area>
+        <mRID>f179bf30-d47e-4c76-86e7-7c13b2622a75</mRID>
+      </Area>
+      <description />
+      <mRID>49db136d-6f1c-4dd8-b933-375a73b2cdf1</mRID>
+      <name>Operation of the EC with flexibility/ ancillary services</name>
+    </BusinessCase>
+  </BusinessCaseLibrary>
+  <BusinessObjectLibrary>
+    <BusinessObject>
+      <description>The flexibility request includes: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;Amount and direction (up/down) of requested flexibility&lt;/li&gt;&lt;li&gt;Starting time of this flexibility&lt;/li&gt;&lt;li&gt;Duration of the flexibility&lt;/li&gt;&lt;li&gt;Price of the flexibility (only NL)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info1</identifier>
+      <mRID>0c4a497a-893d-498d-8de0-2c016dd5e5f5</mRID>
+      <name>Flexibility request </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>Information about the requested flexibility: &lt;br/&gt;- Time stamp &lt;br/&gt;- Member ID (IT)/ EC ID (NL)&lt;br/&gt;- Start time of the flexibility request &lt;br/&gt;- Duration of the flexibility request &lt;br/&gt;- Amount of the flexibility request&lt;br/&gt;</description>
+      <identifier>Info2</identifier>
+      <mRID>b4cfa916-11ba-4ed2-b71f-1c11cb508415</mRID>
+      <name>Information about participation in flexibility request</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>Decision about the flexibility request: Yes/No</description>
+      <identifier>Info3</identifier>
+      <mRID>1608b816-2075-4dfb-a772-70b2575a5c5b</mRID>
+      <name>Answer to flexibility request</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for the next 24 hours in 15 minute intervals:&lt;/li&gt;&lt;/ul&gt;          - Forecasts: &lt;br/&gt;                 - PV production (in kWh)&lt;br/&gt;                 - Consumption (in kWh)&lt;br/&gt;                - optional: aggregated injection of the community (IT) &lt;br/&gt;                 -  Grid price of the energy (in &amp;#8364;/kWh) &lt;br/&gt;          - Schedule: &lt;br/&gt;                 - BESS: SOC in % &lt;br/&gt;                 - Heat Pump: On/Off (only in IT)&lt;br/&gt;                 - CS: charging profile (only in IT)&lt;br/&gt;&lt;br/&gt;IT: Indications as to which parts of the schedule are mandatory for flexibility services.&lt;br/&gt;</description>
+      <identifier>Info4</identifier>
+      <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+      <name>House resources scheduling</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;PV data (only for members with PV):&lt;/li&gt;&lt;/ul&gt;S_AC (VA)&lt;br/&gt;S_AC_L1 (VA)&lt;br/&gt;S_AC_L2 (VA)&lt;br/&gt;S_AC_L3 (VA)&lt;br/&gt;P_AC (W)&lt;br/&gt;P_AC_L1 (W)&lt;br/&gt;P_AC_L2 (W)&lt;br/&gt;P_AC_L3 (W)&lt;br/&gt;Q_AC (VAr)&lt;br/&gt;Q_AC_L1 (VAr)&lt;br/&gt;Q_AC_L2 (VAr)&lt;br/&gt;Q_AC_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_AC_L1 (V)&lt;br/&gt;U_AC_L2 (V)&lt;br/&gt;U_AC_L3 (V)&lt;br/&gt;I_AC_L1 (A)&lt;br/&gt;I_AC_L2 (A)&lt;br/&gt;I_AC_L3 (A)&lt;br/&gt;Ump_DC_St1 (V)&lt;br/&gt;Imp_DC_St1 (A)&lt;br/&gt;P_DC_St1 (W)&lt;br/&gt;Ump_DC_St2 (V)&lt;br/&gt;Imp_DC_St2 (A)&lt;br/&gt;P_DC_St2 (W)&lt;br/&gt;P_DC (W)&lt;br/&gt;f (Hz)&lt;br/&gt;Temperature (&amp;#186;C)&lt;br/&gt;Inverter State (Integer)&lt;br/&gt; &lt;br/&gt;&lt;ul&gt;&lt;li&gt;House data:&lt;/li&gt;&lt;/ul&gt;S_Imp (VA)&lt;br/&gt;S_Imp_L1 (VA)&lt;br/&gt;S_Imp_L2 (VA)&lt;br/&gt;S_Imp_L3 (VA)&lt;br/&gt;S_Exp (VA)&lt;br/&gt;S_Exp_L1 (VA)&lt;br/&gt;S_Exp_L2 (VA)&lt;br/&gt;S_Exp_L3 (VA)&lt;br/&gt;P_Imp (W)&lt;br/&gt;P_Imp_L1 (W)&lt;br/&gt;P_Imp_L2 (W)&lt;br/&gt;P_Imp_L3 (W)&lt;br/&gt;P_Exp (W)&lt;br/&gt;P_Exp_L1 (W)&lt;br/&gt;P_Exp_L2 (W)&lt;br/&gt;P_Exp_L3 (W)&lt;br/&gt;Q_Imp (VAr)&lt;br/&gt;Q_Imp_L1 (VAr)&lt;br/&gt;Q_Imp_L2 (VAr)&lt;br/&gt;Q_Imp_L3 (VAr)&lt;br/&gt;Q_Exp (VAr)&lt;br/&gt;Q_Exp_L1 (VAr)&lt;br/&gt;Q_Exp_L2 (VAr)&lt;br/&gt;Q_Exp_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_L1 (V)&lt;br/&gt;U_L2 (V)&lt;br/&gt;U_L3 (V)&lt;br/&gt;I_L1 (A)&lt;br/&gt;I_L2 (A)&lt;br/&gt;I_L3 (A)&lt;br/&gt;f (Hz)&lt;br/&gt; &lt;br/&gt;&lt;ul&gt;&lt;li&gt;Storage data per battery (if applicable):&lt;/li&gt;&lt;/ul&gt;SOC (%)&lt;br/&gt;Temperature (&amp;#186;C) &lt;br/&gt;S_Imp (VA)&lt;br/&gt;S_Imp_L1 (VA)&lt;br/&gt;S_Imp_L2 (VA)&lt;br/&gt;S_Imp_L3 (VA)&lt;br/&gt;S_Exp (VA)&lt;br/&gt;S_Exp_L1 (VA)&lt;br/&gt;S_Exp_L2 (VA)&lt;br/&gt;S_Exp_L3 (VA)&lt;br/&gt;P_Imp (W)&lt;br/&gt;P_Imp_L1 (W)&lt;br/&gt;P_Imp_L2 (W)&lt;br/&gt;P_Imp_L3 (W)&lt;br/&gt;P_Exp (W)&lt;br/&gt;P_Exp_L1 (W)&lt;br/&gt;P_Exp_L2 (W)&lt;br/&gt;P_Exp_L3 (W)&lt;br/&gt;Q_Imp (VAr)&lt;br/&gt;Q_Imp_L1 (VAr)&lt;br/&gt;Q_Imp_L2 (VAr)&lt;br/&gt;Q_Imp_L3 (VAr)&lt;br/&gt;Q_Exp (VAr)&lt;br/&gt;Q_Exp_L1 (VAr)&lt;br/&gt;Q_Exp_L2 (VAr)&lt;br/&gt;Q_Exp_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_L1 (V)&lt;br/&gt;U_L2 (V)&lt;br/&gt;U_L3 (V)&lt;br/&gt;I_L1 (A)&lt;br/&gt;I_L2 (A)&lt;br/&gt;I_L3 (A)&lt;br/&gt;f (Hz)&lt;br/&gt;&lt;br/&gt;- Possibly additional states of flexible assets &lt;br/&gt;</description>
+      <identifier>Info5</identifier>
+      <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+      <name>House measurements </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>The EC manager sends the information to the EC Member that a new schedule was requested.</description>
+      <identifier>Info6</identifier>
+      <mRID>269a9d5b-63a7-4e85-b7a3-68c9aa03fabf</mRID>
+      <name>Rescheduling decision</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>- ID of the EC member &lt;br/&gt;- Time stamp &lt;br/&gt;- Flexibility provided&lt;br/&gt;- Renumeration for this flexibility &lt;br/&gt;- Total amount of renumeration</description>
+      <identifier>Info7</identifier>
+      <mRID>0128fc08-0056-4506-9a46-ebfec311a614</mRID>
+      <name>Renumeration flexibility service</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC member (IT, BE)/ ID of the EC (NL)&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for 15 min intervals of the whole month:&lt;/li&gt;&lt;/ul&gt;               - Consumption &lt;br/&gt;               - Injection&lt;br/&gt;</description>
+      <identifier>Info8</identifier>
+      <mRID>f84a92d9-663e-4fbd-85cc-0cee5b32fd46</mRID>
+      <name>Invoice preliminary information</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC Member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Consumption measurements of the DSO (time series per 15 minutes for one or two months, depending on the contract of the EC member)&lt;/li&gt;&lt;li&gt;Price for these time steps&lt;/li&gt;&lt;li&gt;Total amount to pay&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info9</identifier>
+      <mRID>761991fb-5aa7-439c-87b4-2d710a813d44</mRID>
+      <name>Invoice for EC Member</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>- ID of the EC member &lt;br/&gt;- Time stamp &lt;br/&gt;- Time series for the whole month in 15 min. intervals: &lt;br/&gt;          - Energy injected into the grid (kWh)&lt;br/&gt;          - Renumeration for this energy (&amp;#8364;/kWh)&lt;br/&gt;- Total renumeration</description>
+      <identifier>Info10</identifier>
+      <mRID>c87ef8d6-10e1-4fb9-9e10-031c3e069045</mRID>
+      <name>Calculations for injection renumeration</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Measurements received from the DSO&lt;/li&gt;&lt;li&gt;Incentive&lt;/li&gt;&lt;li&gt;Whole incentive&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info11</identifier>
+      <mRID>27f82ce1-830f-4488-97ae-63024eaf5df8</mRID>
+      <name>Invoice with incentives</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>- ID of the EC member &lt;br/&gt;- Calculations for the incentive&lt;br/&gt;- Total incentive</description>
+      <identifier>Info12</identifier>
+      <mRID>1634d154-6b14-4b24-819b-99b48cdef1d1</mRID>
+      <name>Distribution of incentive</name>
+    </BusinessObject>
+  </BusinessObjectLibrary>
+  <CommonTermLibrary />
+  <name>Use Case Repository</name>
+  <RequirementLibrary />
+  <UseCaseLibrary>
+    <UseCase>
+      <ActorGrouping>
+        <description />
+        <FurtherActorInformation>
+          <Actor>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </Actor>
+          <Actor>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </Actor>
+          <Actor>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </Actor>
+          <Actor>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </Actor>
+          <Actor>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </Actor>
+          <Actor>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </Actor>
+          <Actor>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </Actor>
+          <description />
+        </FurtherActorInformation>
+        <name />
+      </ActorGrouping>
+      <BusinessCase>
+        <mRID>49db136d-6f1c-4dd8-b933-375a73b2cdf1</mRID>
+      </BusinessCase>
+      <classification />
+      <Drawing>
+        <drawingType>use case overview</drawingType>
+        <mRID>ae1f1382-e037-45d5-aefe-130bea5755b3</mRID>
+        <name>BusinessUseCase1 - overview</name>
+        <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image8.png</URI>
+      </Drawing>
+      <Drawing>
+        <drawingType>scenarios flowchart</drawingType>
+        <mRID>69388791-a40b-49f7-a6f8-4311b9f93f94</mRID>
+        <name>BusinessUseCase1 - scenarios flowchart</name>
+        <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image9.png</URI>
+      </Drawing>
+      <identifier />
+      <KeyPerformanceIndicator>
+        <description>The amount of shared energy shall be increased by &amp;gt;=30% as stated in the Grant Agreement.</description>
+        <identifier>1</identifier>
+        <mRID>bbcdb0e8-fb57-478b-9eee-202cd742cfda</mRID>
+        <name>Amount of shared energy</name>
+        <Objective>
+          <mRID>bd66088b-cdf4-455e-867c-45539d88a3c7</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The monetary value of increasing the use of locally generated energy is reflected in the incentive received by the community for the shared energy. The revenue created through the DERs shall be increased by &amp;gt;=25% as stated in the Grant Agreement.</description>
+        <identifier>2</identifier>
+        <mRID>7021d0c9-0023-412d-a84e-51683da50d51</mRID>
+        <name>Incentive</name>
+        <Objective>
+          <mRID>bd66088b-cdf4-455e-867c-45539d88a3c7</mRID>
+        </Objective>
+        <Objective>
+          <mRID>5e7a3ee0-1fe5-481b-b1f8-2670276bd9df</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>As stated in the Grant Agreement, the energy literacy of the EC members shall be increased by &amp;gt;= 50% with respect to the baseline based on computations at the start of the project (D1.2, D2.3).</description>
+        <identifier>3</identifier>
+        <mRID>86bf813c-4031-4741-a1eb-7577aae3220c</mRID>
+        <name>Energy literacy of the EC members</name>
+        <Objective>
+          <mRID>fe454ee7-3261-4a59-afd3-68c79e93b9e0</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>As stated in the Grant Agreement, the willingness to participate in flexibility services shall be increased by &amp;gt;= 40% compared to the results of a first survey conducted in T1.2.</description>
+        <identifier>4</identifier>
+        <mRID>da8bb5db-05b5-4d1e-8e33-14c502b96fdb</mRID>
+        <name>Willingness of the EC to participate in flexibility services</name>
+        <Objective>
+          <mRID>b848ed39-82b2-421a-850c-25a69f3ea2a3</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>To evaluate the effectiveness of the response of the EC to requests from the DSO, the amount of flexibility agreed on with the DSO can be measured. &lt;br/&gt;</description>
+        <identifier>5</identifier>
+        <mRID>c90b703e-2710-435b-a8b4-85975f99de35</mRID>
+        <name>Amount of flexibility agreed on with the DSO</name>
+        <Objective>
+          <mRID>b848ed39-82b2-421a-850c-25a69f3ea2a3</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The flexibility potential shall be increased by &amp;gt;= 25% according to the Grant Agreement.</description>
+        <identifier>6</identifier>
+        <mRID>930998b2-0a17-41a5-bb13-19fc0f878778</mRID>
+        <name>Amount of available flexibility</name>
+        <Objective>
+          <mRID>b848ed39-82b2-421a-850c-25a69f3ea2a3</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description />
+        <identifier>7</identifier>
+        <mRID>a145afd8-5369-4aac-a099-19e73bcc8530</mRID>
+        <name>Revenue from the flexibility services</name>
+        <Objective>
+          <mRID>7d4c5652-21bf-4bda-8d87-dd9c665a932e</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The self-consumption at pilot level shall be increased by &amp;gt;=15% as stated in the Grant Agreement.</description>
+        <identifier>8</identifier>
+        <mRID>d3c99abf-858c-4f1c-aa3f-dc4e00a05262</mRID>
+        <name>Individual Self-consumption</name>
+        <Objective>
+          <mRID>ee10e010-28ff-471d-a278-4986c15513ef</mRID>
+        </Objective>
+        <Objective>
+          <mRID>b13f22f2-25a5-4dae-bedb-96e334ef8f4e</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The use of distributed energy resources by active consumers shall be increased by &amp;gt;=30% as stated in the Grant Agreement.</description>
+        <identifier>9</identifier>
+        <mRID>4f5e17aa-228a-4471-96e9-ef6f47a43a74</mRID>
+        <name>Use of DER</name>
+        <Objective>
+          <mRID>ee10e010-28ff-471d-a278-4986c15513ef</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <keywords>Italian regulations (monetary incentive scheme), Batteries; heat pumps; electric vehicles, Full governance on member level, Italian flexibility market</keywords>
+      <levelOfDepth />
+      <mRID>835a3aa2-d750-4351-afe6-2bcffb670f5e</mRID>
+      <name>IT: EC operation with flexibility services</name>
+      <Narrative>
+        <completeDescription>This BUC describes the operation of the EC in Italy in the future, with a participation of the EC in the flexibility market through the platform Piclo Flex. &lt;br/&gt;In this EC, each member is connected only to the distribution grid and can purchase energy from/sell energy to this grid. The members have flexible assets such as batteries, EVs with CS and heat pumps and PV panels. These assets are managed by each EC member who can decide to follow recommendations in form of a schedule of the EC manager or not. However, in the case of the flexibility being activated, the flexible assets have to be operated such that the flexibility is being delivered. The EC members thus loose the governance over their flexible assets in this case and the BSP controls the assets.&lt;br/&gt;The BUC consists of four stages, the long-term flexibility contracting, the day-ahead forecasting &amp;amp; scheduling phase, the operational phase (with and without flexibility and the integration of the intraday flexibility market) and the billing &amp;amp; settlement phase. &lt;br/&gt;Simultaneous injection &amp;amp; consumption of energy of members of the EC is considered as &amp;quot;shared energy&amp;quot;. For this amount of energy, the EC receives a monetary incentive transferred to the bank account of the EC. The incentive is shared within the EC according to rules defined in the EC contract.</completeDescription>
+        <mRID>bb29b428-0f6e-4553-8037-f09c2f71c957</mRID>
+        <shortDescription>This BUC describes the operation of the EC in Italy in the future, with a participation of the EC in the flexibility market through the platform Piclo Flex.</shortDescription>
+      </Narrative>
+      <nature>BUC</nature>
+      <Prerequisite>
+        <description>For this BUC, the following assumptions have to be fulfilled: &lt;br/&gt;- The EC has to be set up with the DSO and GSE, in order to receive the incentives for shared energy. &lt;br/&gt;- The EC members have an agreement with the EC manager such that the EC manager can access their meters in order to gather historical data for the forecasts and real-time data for rescheduling purposes. &lt;br/&gt;- The EC members inform the EC manager about their flexible assets and their preferences for using these. This information is necessary for the scheduling process. &lt;br/&gt;- Agreement of the EC that the EC manager has control over the EC bank account and how the incentive received from the GSE will be used inside the community. &lt;br/&gt;- The EC members have a contract with the BSP. This contract defines that the BSP can control the assets (or a defined part of the assets) of the EC member when delivering flexibility services within the contract. &lt;br/&gt;- The flexibility market has to be established in the respective area. This prerequisite is currently not met in the area of the pilot of the U2Demo project (Vallevignale). The DSO is not yet prepared to provide this service in the area.</description>
+        <mRID>766f982a-e912-41ea-b784-9e5737ee3807</mRID>
+        <name>Preconditions</name>
+        <number>1</number>
+      </Prerequisite>
+      <prioritization />
+      <RelatedObjective>
+        <description>Through coordinating the energy use of the EC members, the amount of locally generated energy used by the community shall be increased.</description>
+        <mRID>bd66088b-cdf4-455e-867c-45539d88a3c7</mRID>
+        <name>Increase amount of shared energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through coordinating the use of energy in combination with the incentive scheme, the incentive received for shared energy shall be increased.</description>
+        <mRID>5e7a3ee0-1fe5-481b-b1f8-2670276bd9df</mRID>
+        <name>Increase the revenue generated by sharing energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through the monitoring interface, the EC members gain a more profound understanding of the PV production, their energy usage and the market prices. This aims at increasing energy literacy and understanding for the use of renewable energy and the benefits of ECs.</description>
+        <mRID>fe454ee7-3261-4a59-afd3-68c79e93b9e0</mRID>
+        <name>Increase energy literacy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>b848ed39-82b2-421a-850c-25a69f3ea2a3</mRID>
+        <name>Facilitate the participation in flexibility services to help reduce net congestion</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>7d4c5652-21bf-4bda-8d87-dd9c665a932e</mRID>
+        <name>Generate revenue through participation in flexibility services</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through the advice given to the EC members in form of a schedule, more locally generated energy shall be used. &lt;br/&gt;</description>
+        <mRID>ee10e010-28ff-471d-a278-4986c15513ef</mRID>
+        <name>Increase use of locally generated energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>By using the storage systems, the use of the locally generated renewable energy shall be increased.</description>
+        <mRID>b13f22f2-25a5-4dae-bedb-96e334ef8f4e</mRID>
+        <name>Increase use of renewables </name>
+      </RelatedObjective>
+      <Scenario>
+        <Activity>
+          <BusinessObject>
+            <mRID>0c4a497a-893d-498d-8de0-2c016dd5e5f5</mRID>
+          </BusinessObject>
+          <description>The DSO publishes a flexibility request on the platform Piclo Flex.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationReceiver>
+          <mRID>3259c588-3942-4cf0-be30-e6646c9812ac</mRID>
+          <name>01Publish flexibility request</name>
+          <number>1.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>0c4a497a-893d-498d-8de0-2c016dd5e5f5</mRID>
+          </BusinessObject>
+          <description>The flexibility request is being processed and published on the platform.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationReceiver>
+          <mRID>b6e90a6f-91b5-4c97-ad53-5c4fec065233</mRID>
+          <name>02Process the flexibility request</name>
+          <number>1.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The BSP reads the flexibility request.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>3e0422fc-599b-47ba-aa0b-9f0148f456b0</mRID>
+          <name>03Read flexibility request</name>
+          <number>1.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b4cfa916-11ba-4ed2-b71f-1c11cb508415</mRID>
+          </BusinessObject>
+          <description>The BSP analyzes the flexible assets of the EC members and allocates flexibility requests to them.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>872f5cb3-de45-4f40-a424-767e1626497d</mRID>
+          <name>04Set flexibility request per EC member</name>
+          <number>1.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the flexibility request from the BSP.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>0a076ec6-967e-4814-9e91-9c36988b6167</mRID>
+          <name>05Receive flexibility request</name>
+          <number>1.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1608b816-2075-4dfb-a772-70b2575a5c5b</mRID>
+          </BusinessObject>
+          <description>The EC member assesses the amount of flexibility they can deliver. The EC member sends the response to the BSP.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationReceiver>
+          <mRID>97f59551-8fa7-4e86-b252-e30dcb1304d8</mRID>
+          <name>06Asses the possible flexibility </name>
+          <number>1.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The BSP receives the response.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>66550eac-5ff1-47e2-a76c-8ff7192afb0e</mRID>
+          <name>07Receive response</name>
+          <number>1.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The BSP processes all the possible flexibility.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>cb21904c-29b1-469d-9a4b-f95e506377e6</mRID>
+          <name>08Process possible flexibility</name>
+          <number>1.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1608b816-2075-4dfb-a772-70b2575a5c5b</mRID>
+          </BusinessObject>
+          <description>The BSP responds to the flexibility request on Piclo Flex.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationReceiver>
+          <mRID>b0f4d8e1-e452-42c8-9269-cf78623aa45f</mRID>
+          <name>09Response to flexibility request</name>
+          <number>1.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Piclo Flex receives the response of the BSP to the flexibility request of the DSO.</description>
+          <event />
+          <InformationProducer>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationProducer>
+          <mRID>93822b90-2ca8-43ec-b9df-a54e8c14c7b5</mRID>
+          <name>10Receive response of BSP</name>
+          <number>1.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1608b816-2075-4dfb-a772-70b2575a5c5b</mRID>
+          </BusinessObject>
+          <description>If the request of the DSO is still open, Piclo Flex matches the response of the BSP to the request.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationReceiver>
+          <mRID>ee48c0a8-6f13-4a7b-8201-7caa457c8fb6</mRID>
+          <name>11Matching</name>
+          <number>1.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The BSP receives the result of the matching process of Piclo Flex.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>29fc9ee1-bb2c-40f2-a8c3-7c0f9bf2bc35</mRID>
+          <name>12Receive response of Piclo Flex</name>
+          <number>1.12</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b4cfa916-11ba-4ed2-b71f-1c11cb508415</mRID>
+          </BusinessObject>
+          <description>The BSP sends the information about the amount of flexibility which the BSP requests from the EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>e05f9178-93fa-405a-bff3-d7dda15d53ff</mRID>
+          <name>13Send response to EC member</name>
+          <number>1.13</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the message from the BSP about the flexibility that they will have to deliver.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>b7f38a87-ee1d-4e19-8dc1-04710c9bab89</mRID>
+          <name>14Receive result</name>
+          <number>1.14</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b4cfa916-11ba-4ed2-b71f-1c11cb508415</mRID>
+          </BusinessObject>
+          <description>The EC member informs the EC manager about the requested flexibility.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationReceiver>
+          <mRID>25e794f8-6432-4ba8-bcfe-0f13d2f5550c</mRID>
+          <name>15Inform the EC manager</name>
+          <number>1.15</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager aggregates the amount of flexibility which the EC members agreed to deliver.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>1821efb0-c721-4de8-ab53-f67b54edc857</mRID>
+          <name>16Aggregate all agreed on flexibility</name>
+          <number>1.16</number>
+          <service />
+        </Activity>
+        <description>This scenario describes the case in which the DSO requests a flexibility before the Intra-day flexibility market.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>e7cc1343-e74c-426c-8535-a85274ffa99e</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image1.png</URI>
+        </Drawing>
+        <mRID>c55167c0-2390-43c4-807e-566421964a12</mRID>
+        <name>00Long-term flexibility request</name>
+        <number>1</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The EC manager requests numerical weather prediction data through a specific API.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>f7e5c6b8-f6a6-4e6f-a843-58168c40e5d7</mRID>
+          <name>01Request numerical weather prediction data</name>
+          <number>2.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager reads historical consumption and production data of the EC members and the current states of the flexible assets. The EC members gave consent for sharing this data with the EC manager.&lt;br/&gt;Additionally, the EC manager reads all the flexibility the EC members agreed to deliver in this time horizon.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>c49052d8-e968-4e54-8c0d-a5452d68399c</mRID>
+          <name>02Read historical EC member data and the current states of the flexible assets</name>
+          <number>2.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager requests the current market prices. These prices have an hourly resolution.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>0ff951ce-0ee8-4461-b5f8-e5bf1bead05a</mRID>
+          <name>03Request market prices</name>
+          <number>2.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Using the numerical weather prediction data and the historical data of each member, the EC manager calculates PV production forecasts and consumption forecasts for each member.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>8407c02e-93f9-44dc-8585-0861fb4cbbdc</mRID>
+          <name>04PV and consumption forecast</name>
+          <number>2.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Using the hourly market prices and the PV production and consumption forecasts, the EC manager performs a scheduling of all flexible assets of the community, on the community as well as on the peer level.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>e216279b-1256-44af-a0df-2fceb648917c</mRID>
+          <name>05Individual look-ahead energy resources scheduling</name>
+          <number>2.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+          </BusinessObject>
+          <BusinessObject>
+            <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+          </BusinessObject>
+          <description>The EC manager assembles the data to be sent to each EC member. &lt;br/&gt;An idea for the forecasts to be sent to each EC member is: &lt;br/&gt;- PV production forecast (own data)&lt;br/&gt;- consumption forecast (own data) &lt;br/&gt;- the expected aggregated injection of the other EC members&lt;br/&gt;- energy price &lt;br/&gt;Additionally, each EC member receives the schedule for their flexible assets.&lt;br/&gt;For the EC members which do not participate in flexibility services, the schedule is only an advice. As they have full governance over their flexible assets, they do not have to follow the schedule. &lt;br/&gt;Those EC members which agreed to deliver a certain amount of flexibility have full governance over their assets too but have to deliver the flexibility they agreed to deliver.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>55cf7256-9d89-40da-9cac-57505c23acdd</mRID>
+          <name>06Organize information for each EC member</name>
+          <number>2.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member acknowledges the schedule of the flexible assets calculated by the EC manager and the forecasts. Each EC member has full governance over the own flexible assets and can decide to follow the schedule or not. &lt;br/&gt;Those EC members who agreed to deliver a certain amount of flexibility have to provide this flexibility.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>69b9788a-26b4-485b-b3ee-0b5ada962b7e</mRID>
+          <name>07Acknowledge the advice</name>
+          <number>2.7</number>
+          <service />
+        </Activity>
+        <description />
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>f86f3862-a8b6-4959-b102-4ee596f912d3</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image2.png</URI>
+        </Drawing>
+        <mRID>95312c9e-a3d1-48c1-87a0-a8e3314aa640</mRID>
+        <name>01Day-ahead scheduling</name>
+        <number>2</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The EC member has full governance over the own flexible assets and can use them either according to the schedule drafted by the EC manager or according to own preferences.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>f1800afa-343d-4772-8dc7-d18f82e1a8ad</mRID>
+          <name>01Control BESS, HP, CS </name>
+          <number>3.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+          </BusinessObject>
+          <description>The consumption, production, injection and the states of the flexible assets of the EC member are being measured and stored in an appropriate way. &lt;br/&gt;Within the project, an interface will be developed, through which the EC members can see a graphical interpretation of the measurements.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationReceiver>
+          <mRID>487ee10b-2799-4b76-a061-b81108a13364</mRID>
+          <name>02Measurement system</name>
+          <number>3.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The measurements are visualized through a panel.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>a716e220-f696-4daa-9e59-4503f3b9febf</mRID>
+          <name>03Visualize the measurements</name>
+          <number>3.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager receives the house measurements, processes these and stores them appropriately.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>9fc8ee93-d6a1-4e08-983c-c42ec1b8d808</mRID>
+          <name>04Process and store data</name>
+          <number>3.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager compares the house measurements to the schedule computed in the scheduling phase.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>90bcd66b-163f-4322-a6f8-2c1156e2fe78</mRID>
+          <name>05Performance evaluation</name>
+          <number>3.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>269a9d5b-63a7-4e85-b7a3-68c9aa03fabf</mRID>
+          </BusinessObject>
+          <ChildActivity>
+            <description>The EC manager requests updated numerical weather prediction data.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>2dd66977-daea-4376-b709-146566feb3f7</mRID>
+            <name>01Request numerical weather prediction data</name>
+            <number>3.6.1</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager reads historical consumption and production data of the EC members and the current states of the flexible assets. The EC members gave consent for sharing this data with the EC manager.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>da839200-84d9-494a-8e5d-cfe0c93c09e4</mRID>
+            <name>02Read historical EC member data and the current states of the flexible assets</name>
+            <number>3.6.2</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>Using the updated numerical weather prediction data and the historical data of each member, the EC manager calculates an updated PV production forecast and consumption forecast for each member.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>35c824ed-9be2-47e6-bbdd-fa449027f126</mRID>
+            <name>03PV and consumption forecast</name>
+            <number>3.6.3</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager reads the data regarding which EC member agreed to deliver which amount of flexibility. This information has to be included in the new schedule.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>87c6dfa5-7f6a-4059-a4da-25b0142b1a7d</mRID>
+            <name>04Read agreed on flexibility</name>
+            <number>3.6.4</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager requests the current market prices. These prices have an hourly resolution.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>73e7f934-8b80-471b-838d-c1eb93729b09</mRID>
+            <name>05Request market prices</name>
+            <number>3.6.5</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>Using the hourly market prices and the PV production and consumption forecasts, the EC Manager performs a scheduling of all flexible assets of the community, on the community as well as on the peer level.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>5b9e9647-50d0-4dea-918c-09995cd9351b</mRID>
+            <name>06Individual look-ahead energy resources scheduling</name>
+            <number>3.6.6</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <BusinessObject>
+              <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+            </BusinessObject>
+            <description>The EC manager assembles the data to be sent to each EC member. &lt;br/&gt;An idea for the forecasts to be sent to each EC member is: &lt;br/&gt;- PV production forecast (own data)&lt;br/&gt;- consumption forecast (own data) &lt;br/&gt;- the expected aggregated injection of the other EC members&lt;br/&gt;- energy price &lt;br/&gt;Additionally, each EC member receives the schedule for their flexible assets.&lt;br/&gt;&lt;br/&gt;For the EC members which do not participate in flexibility services, the schedule is only an advice. As they have full governance over their flexible assets, they do not have to follow the schedule. &lt;br/&gt;Those EC members which agreed to deliver a certain amount of flexibility have full governance over their assets too but have to deliver the flexibility they agreed to deliver.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <InformationReceiver>
+              <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+            </InformationReceiver>
+            <mRID>caf7991f-36eb-4501-8e27-c7a981605fd9</mRID>
+            <name>07Organize information for each EC member</name>
+            <number>3.6.7</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC member acknowledges the schedule of the flexible assets calculated by the EC manager and the forecasts. Each EC member has full governance over the own flexible assets and can decide to follow the schedule or not. &lt;br/&gt;Those EC members who agreed to deliver a certain amount of flexibility have to provide this flexibility.</description>
+            <event />
+            <InformationProducer>
+              <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+            </InformationProducer>
+            <mRID>0864d0b4-a97a-439c-bf65-0e614ac676a0</mRID>
+            <name>08Acknowledge the advice</name>
+            <number>3.6.8</number>
+            <service />
+          </ChildActivity>
+          <description>The EC manager computes a new schedule on the basis of the current states of the flexible assets and updated information on weather, prices, consumption.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <Drawing>
+            <drawingType>activities flowchart</drawingType>
+            <mRID>{3E36F246-F8BB-44f0-9931-8CAE36011E8D}</mRID>
+            <name>Activity3 - activities flowchart</name>
+            <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image4.png</URI>
+          </Drawing>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>c920655f-5bfe-49d7-8cb2-174fc2e7d553</mRID>
+          <name>06Reschedule</name>
+          <number>3.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the information that the EC manager reschedules the flexible assets.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>9674c0ec-7501-4e93-b31b-c37d6b54cb56</mRID>
+          <name>07Receive rescheduling decision</name>
+          <number>3.7</number>
+          <service />
+        </Activity>
+        <description>This scenario describes how the EC members control their flexible assets in the case that no flexibility is activated.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>c6495080-db77-4533-81de-a9bf721e5046</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image3.png</URI>
+        </Drawing>
+        <mRID>547649b6-13cd-425f-8547-407ec004ccaa</mRID>
+        <name>02.1RT operation without flexibility</name>
+        <number>3</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <BusinessObject>
+            <mRID>0c4a497a-893d-498d-8de0-2c016dd5e5f5</mRID>
+          </BusinessObject>
+          <description>The DSO places a flexibility request on Piclo Flex, indicating the requested amount of flexibility, the start time and the end time. The price is fixed by contracts.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationReceiver>
+          <mRID>26566264-2eda-4e53-b21e-33cce98b902a</mRID>
+          <name>01Place flexibility request on Piclo Flex</name>
+          <number>4.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>0c4a497a-893d-498d-8de0-2c016dd5e5f5</mRID>
+          </BusinessObject>
+          <description>Piclo Flex processes and stores the flexibility request of the DSO.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationReceiver>
+          <mRID>aaa05285-f33a-4a2d-815b-5f2b38a5e3b0</mRID>
+          <name>02Process and store the flexibility request</name>
+          <number>4.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The BSP reads the open flexibility request set by the DSO on Piclo Flex.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>f8ef4db0-31c0-4fee-8643-d2af0246cdfb</mRID>
+          <name>03Read open flexibility requests of the DSO</name>
+          <number>4.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1608b816-2075-4dfb-a772-70b2575a5c5b</mRID>
+          </BusinessObject>
+          <description>The BSP processes the request and decides whether to accept it or not. This answer is sent to Piclo Flex. &lt;br/&gt;&lt;br/&gt;After this decision, the BSP decides the participation level of each EC member that has a flexibility contract with the BSP.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationReceiver>
+          <mRID>9b5391ec-ec3d-4b3b-abae-72e822bf01f6</mRID>
+          <name>04Process the request</name>
+          <number>4.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Piclo Flex receives the answer of the BSP.</description>
+          <event />
+          <InformationProducer>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationProducer>
+          <mRID>52dc12bd-72fd-4937-b3f4-c0937e42e03e</mRID>
+          <name>05Receive answer of the BSP</name>
+          <number>4.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1608b816-2075-4dfb-a772-70b2575a5c5b</mRID>
+          </BusinessObject>
+          <description>Information about if the offer of the BSP is matched with the request of the DSO.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>dc97ce25-baa1-4bff-90b4-816bdcd663b1</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationReceiver>
+          <mRID>265f7806-c7f4-44ae-b35a-c2aa8d2bf4ac</mRID>
+          <name>06Send answer to BSP</name>
+          <number>4.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The BSP receives the result of the matching process.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>530e1fe0-1c5e-4a5a-a4f5-27ef8eb50d47</mRID>
+          <name>07Receive answer of Piclo Flex</name>
+          <number>4.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b4cfa916-11ba-4ed2-b71f-1c11cb508415</mRID>
+          </BusinessObject>
+          <description>The BSP sends a flexibility order to the EC member. The EC member has to follow this order.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>ff1ef0b6-87cb-4571-b169-706be67d2e75</mRID>
+          <name>08Send flexibility request to EC member</name>
+          <number>4.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b4cfa916-11ba-4ed2-b71f-1c11cb508415</mRID>
+          </BusinessObject>
+          <description>The EC member receives the flexibility request of the BSP. Through the contract with the BSP, the BSP is allowed to control the flexible assets of the EC member in order to satisfy this flexibility. In this scenario, the rescheduling of the community is done by the EC manager, having knowledge over all the requested flexibility.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationReceiver>
+          <mRID>05a2fabf-977f-4b20-ad6e-f6603eeb600b</mRID>
+          <name>09Receive the flexibility request</name>
+          <number>4.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager collects all the flexibility requests sent to the EC members. This information is used to schedule the flexible assets of the community.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>d1b02ddb-6fc2-4e06-a45a-3ac6e3ed0da2</mRID>
+          <name>10Aggregate all flexibility requests inside the community</name>
+          <number>4.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager requests updated numerical weather information.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>946bac2c-3bef-489f-b9eb-3ce28e273251</mRID>
+          <name>11Request numerical weather prediction data</name>
+          <number>4.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager reads historical consumption and production data of the EC members and the current states of the flexible assets. The EC members gave consent for sharing this data with the EC manager.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>23431960-1368-45cf-a08f-42aaf3fec287</mRID>
+          <name>12Read historical EC member data and the current states of the flexible assets</name>
+          <number>4.12</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager requests updated market prices.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>fe2e09b9-c289-4dd9-b9ba-9cc96072b700</mRID>
+          <name>13Request market prices</name>
+          <number>4.13</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager calculates an update of the PV production forecast and the consumption forecast of each house. For the consumption forecast, the EC manager uses the historical data provided by the EC members for the day-ahead scheduling.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>19f262af-e432-4e48-a808-abe0fdc4e35e</mRID>
+          <name>14PV production and consumption forecast</name>
+          <number>4.14</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager calculates a schedule for the flexible assets of each house, taking into account the flexibility request of the BSP.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>f635cb03-35e6-4c5f-997a-81392803535d</mRID>
+          <name>15Individual look-ahead energy resources scheduling with the flexibility request</name>
+          <number>4.15</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+          </BusinessObject>
+          <description>The EC manager organizes the information of the schedule and the forecasts and sends the schedule to the EC members.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>6bc943b0-3a91-4f26-9d3c-11939d97ec02</mRID>
+          <name>16Organize information and send to the EC members</name>
+          <number>4.16</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member acknowledges the schedule and the forecasts provided by the EC manager. In case of the member participating in providing flexibility services, the EC member has to follow the schedule. If the EC member does not participate in the flexibility service, the schedule is only an advice for the EC member.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>3b5d26b5-9131-4b46-bb95-13e74ffe01fb</mRID>
+          <name>17Acknowledge schedule and the forecasts</name>
+          <number>4.17</number>
+          <service />
+        </Activity>
+        <description>The DSO can place flexibility requests on the platform Piclo Flex. The BSP reads these flexibility requests and answers to them. When the offer of the BSP is matched with the request of the DSO, the EC members provide a predetermined amount of flexibility. The BSP controls the assets of the EC members in order to guarantee the flexibility.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>d8711899-3ae9-4212-9e7e-d4d846938d41</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image5.png</URI>
+        </Drawing>
+        <mRID>1ce46e8c-0b39-41a4-b7c2-5c837429ba89</mRID>
+        <name>02.2Process flexibility request (ID market)</name>
+        <number>4</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The BSP has full governance over the flexible assets of the EC member which participates in the flexibility services.</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <mRID>83eca568-735f-4ba1-9383-b8a8cef1912a</mRID>
+          <name>01Control of the flexible assets</name>
+          <number>5.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+          </BusinessObject>
+          <description>The BSP has access to the measurements of each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>d29b89fb-377d-435b-b520-d799340990fb</mRID>
+          <name>02Measurement system</name>
+          <number>5.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the measurements.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>c58a1b97-8704-410a-ac5f-460bcdb67a29</mRID>
+          <name>03Receive the measurements</name>
+          <number>5.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The measurements are visualized through a panel to be developed within the project.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>175d9629-8762-480b-9209-79e3975efa64</mRID>
+          <name>04Visualize the measurements</name>
+          <number>5.4</number>
+          <service />
+        </Activity>
+        <description>This scenario describes the RT operation in case that flexibility services were requested. In this case, the BSP has control over the assets of the EC members participating in the flexibility services.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>2d4d5ee7-77f5-4c3d-939e-7b5b44108b1b</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image6.png</URI>
+        </Drawing>
+        <mRID>2c7db6cc-bbf8-47fb-9439-249c80334c47</mRID>
+        <name>02.3 RT operation in flexibility request case</name>
+        <number>5</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <BusinessObject>
+            <mRID>0128fc08-0056-4506-9a46-ebfec311a614</mRID>
+          </BusinessObject>
+          <description>The BSP calculates the renumeration that the EC member receives for the flexibility service. This renumeration does not concern the EC but was established in a contract between the EC member and the BSP.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>70f37b22-fcba-4cc2-aed5-1021011476ef</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationReceiver>
+          <mRID>dd0cc740-a323-495d-8953-0f741d15ad32</mRID>
+          <name>01Calculate renumeration for flexibility service</name>
+          <number>6.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the renumeration for the flexibility service.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>39b6342e-eda7-4802-9c0e-0fee83c3e4d5</mRID>
+          <name>02Receive the renumeration</name>
+          <number>6.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>f84a92d9-663e-4fbd-85cc-0cee5b32fd46</mRID>
+          </BusinessObject>
+          <description>The DSO collects the consumption and injection data of each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationReceiver>
+          <InformationReceiver>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationReceiver>
+          <mRID>c81f63a0-cc89-45d3-bad3-f966f57f6df9</mRID>
+          <name>03Consolidate consumption and injection data of each EC member</name>
+          <number>6.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The supplier receives the measurements from the DSO.</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <mRID>d3c63303-e2bb-47aa-92c7-1af5699f92a7</mRID>
+          <name>04Acknowledge the measurements of the DSO</name>
+          <number>6.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>761991fb-5aa7-439c-87b4-2d710a813d44</mRID>
+          </BusinessObject>
+          <description>The supplier uses the measurements of the DSO to set up a bill for the consumption of each member of the EC.&lt;br/&gt;Depending on the contract between the EC member and the supplier, they receive the bill on a monthly or on a bimonthly basis. &lt;br/&gt;&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <mRID>3fe267fb-194c-4213-8bb9-6529f09c1f3c</mRID>
+          <name>05Set up bills</name>
+          <number>6.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member receives a bill from the supplier for the consumption (for one or two months). The bill is settled between the member and the supplier.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>5a1a2866-13d5-4f5d-b3d8-b46500b91d2e</mRID>
+          <name>06Receive and settle the bill</name>
+          <number>6.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The GSE receives the measurements of the DSO.</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>8895e743-e107-456d-8ce6-d785ab844017</mRID>
+          <name>07Receive the measurements of the DSO</name>
+          <number>6.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>c87ef8d6-10e1-4fb9-9e10-031c3e069045</mRID>
+          </BusinessObject>
+          <BusinessObject>
+            <mRID>c87ef8d6-10e1-4fb9-9e10-031c3e069045</mRID>
+          </BusinessObject>
+          <description>The GSE calculates the renumeration for the injected amount of each EC member, based on the contract between the EC member and the GSE.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>a3492168-1aa7-43bb-aa4f-25abbabb5305</mRID>
+          <name>08Calculate incentive for injection</name>
+          <number>6.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the payment and the calculations of the GSE for the energy injected into the grid.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>004b15c4-0501-4fc8-a5b7-a5f6871f1dbb</mRID>
+          <name>09Acknowledge the renumeration</name>
+          <number>6.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Every 6 months, the GSE calculates the amount of energy shared between the EC members. This amount is the minimum amount between simultaneous consumption and injection of the EC members.</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>69b11eb8-5d90-413e-bf7e-fb0bd2fa6658</mRID>
+          <name>10Calculate the energy shared within the community </name>
+          <number>6.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The GSE multiplies the amount of shared energy with the premium rate to calculate the incentive that the EC receives for sharing energy.</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <mRID>4eaad97b-0c6c-4f1d-8c84-800e1971739e</mRID>
+          <name>11Calculate incentive </name>
+          <number>6.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>27f82ce1-830f-4488-97ae-63024eaf5df8</mRID>
+          </BusinessObject>
+          <description>The GSE sends the incentive for energy sharing to the bank account of the EC.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>8dd1d2cf-baff-4b2d-9340-9ffcc2305c2d</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationReceiver>
+          <mRID>5f88a31d-378d-4441-8e6e-e5492420c002</mRID>
+          <name>12Send the incentive to the bank account of the community</name>
+          <number>6.12</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager acknowledges the calculations of the GSE, the incentive sent to the community bank account and the measurements provided by the GSE.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>f1365645-bd26-4062-b8bd-ca15cff9b143</mRID>
+          <name>13Acknowledge the incentive</name>
+          <number>6.13</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>1634d154-6b14-4b24-819b-99b48cdef1d1</mRID>
+          </BusinessObject>
+          <BusinessObject>
+            <mRID>1634d154-6b14-4b24-819b-99b48cdef1d1</mRID>
+          </BusinessObject>
+          <description>The EC manager distributes the incentive among the EC members according to the measurements provided by the GSE about the injection and the consumption of the EC members. The distribution follows the rules established within the community, currently the distribution is primarily based on each member's contribution to the generation of the incentive.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>b02209cb-1c51-4e6f-8ad8-c9ec43bd5840</mRID>
+          <name>14Distribute the incentive</name>
+          <number>6.14</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member receives the own share of the incentive granted to the whole EC and the corresponding calculations.</description>
+          <event />
+          <InformationProducer>
+            <mRID>fc41fb09-4a78-4136-8455-6e9976e0e601</mRID>
+          </InformationProducer>
+          <mRID>72313e9c-c03f-4c43-be14-8898a2eec268</mRID>
+          <name>15Acknowledge the incentive</name>
+          <number>6.15</number>
+          <service />
+        </Activity>
+        <description>This scenario describes the settlement and billing process after the operation phase. The DSO consolidates the measurements once a month and sends them to the GSE and to the supplier of the EC Members.  The EC members receive their bill for consumption monthly or bimonthly, depending on their contract. Additionally, they receive a renumeration for their injection on a monthly basis. Every 6 months, the GSE computes the incentive for energy sharing and transfers this incentive to the community bank account. &lt;br/&gt;The monetary incentive is distributed among the members by the EC manager, the distribution rule is primarily based on each member's contribution to the generation of the incentive. &lt;br/&gt;For the flexibility service, the EC member receives a renumeration from the BSP. The renumeration is agreed on in the contract of the EC member with the BSP.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>d112ec73-b59d-4675-b579-592a8ab78d71</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">IT_ EC operation with flexibility services\Image7.png</URI>
+        </Drawing>
+        <mRID>f82b8b9c-d6a3-40e0-831f-5f8cc473d2a2</mRID>
+        <name>03Settlement and billing</name>
+        <number>6</number>
+      </Scenario>
+      <scope>This BUC describes the operation of the EC in Italy in the future, with a participation of the EC in the flexibility market through the platform Piclo Flex. Each member of this EC has flexible assets, such as&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Batteries,&lt;/li&gt;&lt;li&gt;Charging stations (CS): currently these are not controllable but 2 of the 5 CS will be replaced by controllable devices which then send data hourly. This granularity can be increased through an API&lt;/li&gt;&lt;li&gt;Heat pumps (HP): can be controlled manually by setting on/off&lt;/li&gt;&lt;li&gt;PV panels,&lt;/li&gt;&lt;li&gt;Electric vehicles (EVs)&lt;/li&gt;&lt;/ul&gt;These assets are managed by each EC member who can decide to follow recommendations in form of a schedule of the EC manager or not. However, when flexibility is requested, the flexible assets have to be used in order to guarantee the delivery of the flexibility. The EC members thus loose their governance over their flexible assets in this case and the BSP controls the assets.</scope>
+    </UseCase>
+  </UseCaseLibrary>
+</UC:UseCaseRepository>

@@ -1,0 +1,1213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Modsarus XML Interface based on IEC 62559-3, version 1-->
+<!--Based on IEC 62559-2 edition 1
+Generated from UML Use Case Repository with Modsarus® (EDF R&D Tool)-->
+<UC:UseCaseRepository xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016 C:\EAAddIns\Modsarus\Transformation\IEC62559-3_UC.xsd" xmlns:UC="http://www.SYC.org/IEC62559/part3/UC/V01/Build08082016">
+  <ActorLibrary>
+    <Actor>
+      <description>Woonland is a role exclusively in the Belgian pilot. &lt;br/&gt;Woonland is the social housing company of the houses at the pilot site. As the house owners, they are part in the billing process of the energy self-consumed by EC members with PV panels. The billing process is facilitated by Klimaan. Klimaan provides self-consumption data on a monthly basis and on household level and calculates the monthly energybill for this self-consumption that is invoiced by Woonland towards the tenants.</description>
+      <mRID>0ff4c53f-d740-4cee-82fb-d24a202a7826</mRID>
+      <name>Woonland</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The supplier is the intermediate party between the wholesale electricity market and the consumer. The supplier receives the official measurements of consumption and production and drafts a bill accordingly. &lt;br/&gt;In the Dutch pilot, the supplier has a relation to a wholeseller who is a Balance Responsible Party (BRP). The daily profile of the EC is thus sent to the supplier and deviations from this profile are bought/sold against the unbalance market price.&lt;br/&gt;</description>
+      <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+      <name>Supplier</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>Klimaan is a role exclusively in the Belgian pilot. &lt;br/&gt;Klimaan is the owner of the PV panels of the Energy Community (EC) and takes on the role as the EC Manager of this EC. &lt;br/&gt;As owner of the PV panels, Klimaan is the owner of the locally generated energy and receives the renumeration for energy injected into the grid by houses with PV panels. &lt;br/&gt;Klimaan plays an integral role in the internal billing process. They bill Woonland for the aggregated self-consumption of their tenants, and the EC members without PV for the consumption of shared energy.</description>
+      <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+      <name>Klimaan</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>This role only exists in the pilot site in Belgium. &lt;br/&gt;These EC members have PV panels installed on their roof, which are owned by Klimaan. They do not participate in energy sharing inside the community but consume energy through two ways: &lt;br/&gt;1) Self-consumption behind the meter from the PV panels on their roof &lt;br/&gt;2) Consumption through the grid&lt;br/&gt;Surplus energy is injected to the grid, and as Klimaan is the owner of the PV panels, Klimaan receives a renumeration for this injected amount of energy. &lt;br/&gt;In the future, these EC members will receive batteries owned and controlled by Klimaan. &lt;br/&gt;From a legal perspective, these members are not part of the energy community, since Klimaan owns the injected energy from their roof. As the PV installations are oversized for their own consumption, they would not benefit significantly from being part of the EC and as the fees for participating in energy sharing are high at the moment, it is not beneficial for them to be aprt of the EC.  However, as a step to strengthen the community feeling, they are seen as part of the energy community in this project. &lt;br/&gt;&lt;br/&gt;</description>
+      <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+      <name>EC Member with PV</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>This role only exists in the pilot site in Belgium. &lt;br/&gt;These EC members do not have PV panels installed on their roof. They participate in energy sharing inside the community, which means that they can consume energy through two sources: &lt;br/&gt;1) Energy shared inside the community - through Klimaan who is the owner of the PV panels on the other houses &lt;br/&gt;2) Consumption through the grid&lt;br/&gt;&lt;br/&gt;These EC members do not own any flexible assets.</description>
+      <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+      <name>EC Member without PV </name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>Distribution System Operators (DSO) are responsible for distribution and management of energy, starting at the TSO substations to the points of consumption. &lt;br/&gt;The DSO plays an integral role in the management of energy communities. In the pilots in Italy, Belgium and Portugal, the DSO provides the official measurements of the consumption and injection data of EC members. Depending on country specific regulations and the configuration of the EC, the measurements are used in an internal billing process or for the billing process through a supplier. &lt;br/&gt;In the Dutch pilot, the DSO does not provide the official measurements, but they are collected by a measurement company. The DSO then receives the data and drafts a bill for the grid usage of the EC.&lt;br/&gt;In the Italian pilot, the meter data is sent to the GSE, to compute the incentive for the shared energy, and to the suppliers of each EC Member, for the individual billing process. &lt;br/&gt;In the Belgian pilot, the DSO computes the credit points for shared energy and shares the measurements with the suppliers and with Klimaan for the internal billing process. &lt;br/&gt;&lt;br/&gt;Apart from consolidating the consumption and injection data, the DSO plays an important role in the flexibility market in the Netherlands, Italy and Portugal. The DSO evaluates the grid load and places flexibility requests, both on the DA flexibility market and on the ID flexibility market. In the Netherlands the flexibility market is managed through the platform GOPACS, in Italy and Portugal through Piclo Flex.&lt;br/&gt;&lt;br/&gt;</description>
+      <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+      <name>DSO</name>
+      <type>Business</type>
+    </Actor>
+    <Actor>
+      <description>The EC manager has a versatile role in the ECs. &lt;br/&gt;In the case of the Italian and Belgian pilot, the EC manager collects the data needed for forecasting algorithms and calculates the forecast. Additionally, the EC manager creates a schedule for the flexible assets and gives advice to the EC members to guide their energy consumption behavior. &lt;br/&gt;In the Italian pilot, the flexible assets are under the governance of each EC member. In this case, the EC manager schedules these assets and gives the result as an advice to the members. &lt;br/&gt;In the Belgian pilot, the EC manager has control over the flexible assets, creates the schedule and controls the assets.  &lt;br/&gt;In both governance models, the EC manager monitors the operation, decides on possible rescheduling and sends the measurements to the EC members for monitoring purpose. &lt;br/&gt;In the Italian pilot, the EC manager has control over the bank account of the community and acknowledges the incentives received for sharing energy. &lt;br/&gt;In the Dutch pilot, the EC manager is responsible for settling the bill with the supplier and for the internal billing process. Additionally, the EC manager is active in the communication of the load profile of the EC to the DSO and in the process of offering flexibility services to the DSO.&lt;br/&gt;In the Portuguese pilot, the EC manager can take a more passive or more active role in the EC, depending on which entity makes the scheduling for the batteries. If the EC manager optimizes the scheduling of the batteries, then it is an active entity which considers community goals and participation in flexibility or in mFRR in the optimization. Otherwise, it plays a passive role, collecting and processes data only.&lt;br/&gt;This role is also responsible, in the Portuguese pilot, for exchanging money from energy sharing for Municipality vouchers to be distributed among EC members.</description>
+      <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+      <name>EC Manager</name>
+      <type>Business</type>
+    </Actor>
+    <name>Actor Library</name>
+  </ActorLibrary>
+  <AreaLibrary>
+    <Area>
+      <description />
+      <mRID>f179bf30-d47e-4c76-86e7-7c13b2622a75</mRID>
+      <name>Use Cases U2Demo</name>
+    </Area>
+  </AreaLibrary>
+  <BusinessCaseLibrary>
+    <BusinessCase>
+      <Area>
+        <mRID>f179bf30-d47e-4c76-86e7-7c13b2622a75</mRID>
+      </Area>
+      <description />
+      <mRID>3126612c-a226-4e80-a66f-3a3bcf9554a8</mRID>
+      <name>Current Operation of the EC</name>
+    </BusinessCase>
+  </BusinessCaseLibrary>
+  <BusinessObjectLibrary>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Member ID&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Time series for the next day in 15 min. steps:&lt;/li&gt;&lt;/ul&gt;         - Forecasts (idea for members with PV): &lt;br/&gt;                   - PV production (in kWh)&lt;br/&gt;                   - Own consumption (in kWh)&lt;br/&gt;&lt;br/&gt;        - Forecasts (idea for members without PV): &lt;br/&gt;                   - Injection of the members with PV (in kWh)&lt;br/&gt;                   - Own consumption (in kWh)         &lt;br/&gt;additional information: grid buy price (&amp;#8364;/kWh)</description>
+      <identifier>Info1</identifier>
+      <mRID>02845e3f-15fd-42e3-a5ee-71a3fff65955</mRID>
+      <name>Forecasts</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;EC member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for the next 24 hours in 15 minute intervals:&lt;/li&gt;&lt;/ul&gt;          - Forecasts: &lt;br/&gt;                 - PV production (in kWh)&lt;br/&gt;                 - Consumption (in kWh)&lt;br/&gt;                - optional: aggregated injection of the community (IT) &lt;br/&gt;                 -  Grid price of the energy (in &amp;#8364;/kWh) &lt;br/&gt;          - Schedule: &lt;br/&gt;                 - BESS: SOC in % &lt;br/&gt;                 - Heat Pump: On/Off (only in IT)&lt;br/&gt;                 - CS: charging profile (only in IT)&lt;br/&gt;&lt;br/&gt;IT: Indications as to which parts of the schedule are mandatory for flexibility services.&lt;br/&gt;</description>
+      <identifier>Info2</identifier>
+      <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+      <name>House resources scheduling</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC member&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;PV production&lt;/li&gt;&lt;li&gt;Consumption of this EC member&lt;/li&gt;&lt;li&gt;Injection data of this EC member&lt;/li&gt;&lt;li&gt;Injection of the whole EC&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info3</identifier>
+      <mRID>61b6ebba-5cfd-44f0-9a97-60f6bf333390</mRID>
+      <name>Monitoring data for EC members with PV</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC member&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Consumption of this EC member&lt;/li&gt;&lt;li&gt;Injection of the whole EC&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info4</identifier>
+      <mRID>b278a8e8-cde9-499c-a09d-0cb1c4d33c98</mRID>
+      <name>Monitoring data for EC members without PV </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;Member ID&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;PV data (only for members with PV):&lt;/li&gt;&lt;/ul&gt;S_AC (VA)&lt;br/&gt;S_AC_L1 (VA)&lt;br/&gt;S_AC_L2 (VA)&lt;br/&gt;S_AC_L3 (VA)&lt;br/&gt;P_AC (W)&lt;br/&gt;P_AC_L1 (W)&lt;br/&gt;P_AC_L2 (W)&lt;br/&gt;P_AC_L3 (W)&lt;br/&gt;Q_AC (VAr)&lt;br/&gt;Q_AC_L1 (VAr)&lt;br/&gt;Q_AC_L2 (VAr)&lt;br/&gt;Q_AC_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_AC_L1 (V)&lt;br/&gt;U_AC_L2 (V)&lt;br/&gt;U_AC_L3 (V)&lt;br/&gt;I_AC_L1 (A)&lt;br/&gt;I_AC_L2 (A)&lt;br/&gt;I_AC_L3 (A)&lt;br/&gt;Ump_DC_St1 (V)&lt;br/&gt;Imp_DC_St1 (A)&lt;br/&gt;P_DC_St1 (W)&lt;br/&gt;Ump_DC_St2 (V)&lt;br/&gt;Imp_DC_St2 (A)&lt;br/&gt;P_DC_St2 (W)&lt;br/&gt;P_DC (W)&lt;br/&gt;f (Hz)&lt;br/&gt;Temperature (&amp;#186;C)&lt;br/&gt;Inverter State (Integer)&lt;br/&gt; &lt;br/&gt;&lt;ul&gt;&lt;li&gt;House data:&lt;/li&gt;&lt;/ul&gt;S_Imp (VA)&lt;br/&gt;S_Imp_L1 (VA)&lt;br/&gt;S_Imp_L2 (VA)&lt;br/&gt;S_Imp_L3 (VA)&lt;br/&gt;S_Exp (VA)&lt;br/&gt;S_Exp_L1 (VA)&lt;br/&gt;S_Exp_L2 (VA)&lt;br/&gt;S_Exp_L3 (VA)&lt;br/&gt;P_Imp (W)&lt;br/&gt;P_Imp_L1 (W)&lt;br/&gt;P_Imp_L2 (W)&lt;br/&gt;P_Imp_L3 (W)&lt;br/&gt;P_Exp (W)&lt;br/&gt;P_Exp_L1 (W)&lt;br/&gt;P_Exp_L2 (W)&lt;br/&gt;P_Exp_L3 (W)&lt;br/&gt;Q_Imp (VAr)&lt;br/&gt;Q_Imp_L1 (VAr)&lt;br/&gt;Q_Imp_L2 (VAr)&lt;br/&gt;Q_Imp_L3 (VAr)&lt;br/&gt;Q_Exp (VAr)&lt;br/&gt;Q_Exp_L1 (VAr)&lt;br/&gt;Q_Exp_L2 (VAr)&lt;br/&gt;Q_Exp_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_L1 (V)&lt;br/&gt;U_L2 (V)&lt;br/&gt;U_L3 (V)&lt;br/&gt;I_L1 (A)&lt;br/&gt;I_L2 (A)&lt;br/&gt;I_L3 (A)&lt;br/&gt;f (Hz)&lt;br/&gt; &lt;br/&gt;&lt;ul&gt;&lt;li&gt;Storage data per battery (if applicable):&lt;/li&gt;&lt;/ul&gt;SOC (%)&lt;br/&gt;Temperature (&amp;#186;C) &lt;br/&gt;S_Imp (VA)&lt;br/&gt;S_Imp_L1 (VA)&lt;br/&gt;S_Imp_L2 (VA)&lt;br/&gt;S_Imp_L3 (VA)&lt;br/&gt;S_Exp (VA)&lt;br/&gt;S_Exp_L1 (VA)&lt;br/&gt;S_Exp_L2 (VA)&lt;br/&gt;S_Exp_L3 (VA)&lt;br/&gt;P_Imp (W)&lt;br/&gt;P_Imp_L1 (W)&lt;br/&gt;P_Imp_L2 (W)&lt;br/&gt;P_Imp_L3 (W)&lt;br/&gt;P_Exp (W)&lt;br/&gt;P_Exp_L1 (W)&lt;br/&gt;P_Exp_L2 (W)&lt;br/&gt;P_Exp_L3 (W)&lt;br/&gt;Q_Imp (VAr)&lt;br/&gt;Q_Imp_L1 (VAr)&lt;br/&gt;Q_Imp_L2 (VAr)&lt;br/&gt;Q_Imp_L3 (VAr)&lt;br/&gt;Q_Exp (VAr)&lt;br/&gt;Q_Exp_L1 (VAr)&lt;br/&gt;Q_Exp_L2 (VAr)&lt;br/&gt;Q_Exp_L3 (VAr)&lt;br/&gt;PF_L1 (Real)&lt;br/&gt;PF_L2 (Real)&lt;br/&gt;PF_L3 (Real)&lt;br/&gt;U_L1 (V)&lt;br/&gt;U_L2 (V)&lt;br/&gt;U_L3 (V)&lt;br/&gt;I_L1 (A)&lt;br/&gt;I_L2 (A)&lt;br/&gt;I_L3 (A)&lt;br/&gt;f (Hz)&lt;br/&gt;&lt;br/&gt;- Possibly additional states of flexible assets &lt;br/&gt;</description>
+      <identifier>Info5</identifier>
+      <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+      <name>House measurements </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC member (IT, BE)/ ID of the EC (NL)&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for 15 min intervals of the whole month:&lt;/li&gt;&lt;/ul&gt;               - Consumption &lt;br/&gt;               - Injection</description>
+      <identifier>Info6</identifier>
+      <mRID>f84a92d9-663e-4fbd-85cc-0cee5b32fd46</mRID>
+      <name>Invoice preliminary information</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of EC Member&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Timeseries for the whole month in 15 min intervals:&lt;/li&gt;&lt;/ul&gt;           - Self-consumption of this member</description>
+      <identifier>Info7</identifier>
+      <mRID>f84f6e44-d2dd-4259-9e3a-b48fe9583e4c</mRID>
+      <name>Self-consumption data of each member </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC Members&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series of the whole month in 15 min. intervals:&lt;/li&gt;&lt;/ul&gt;          - Self-consumption of all members (kWh)&lt;br/&gt;          - Price per unit of self-consumption (&amp;#8364;/kWh)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Total amount to pay (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info8</identifier>
+      <mRID>b4eebecc-bab1-430a-a6d1-93f7da9b368e</mRID>
+      <name>Self-consumption invoice for all EC Members</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC member&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Time series for the whole month in 15 min. intervals:&lt;/li&gt;&lt;/ul&gt;                - Consumption (kWh)</description>
+      <identifier>Info9</identifier>
+      <mRID>650fe86c-905d-430b-ae3a-ee4e87b158ac</mRID>
+      <name>Consumption data of EC member with PV </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC Member&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Time series for the whole month in 15 mins. intervals:&lt;/li&gt;&lt;/ul&gt;            - Consumption (kWh)&lt;br/&gt;            - Energy price (&amp;#8364;/kWh)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Total amount to pay (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info10</identifier>
+      <mRID>b97d3138-dc53-4c0b-bf09-ad1e9d559d6a</mRID>
+      <name>Invoice for grid consumption of EC Member with PV </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC Member&lt;/li&gt;&lt;li&gt;Time series for the whole month in 15 min. intervals:&lt;/li&gt;&lt;/ul&gt;              - Amount of energy consumed through the EC (kWh)</description>
+      <identifier>Info11</identifier>
+      <mRID>8341961d-4137-4f10-a3bf-5dbdc1548a82</mRID>
+      <name>Amount of shared energy </name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC Member&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;li&gt;Time series of the whole month in 15 min. intervals:&lt;/li&gt;&lt;/ul&gt;           - Consumption (kWh)&lt;br/&gt;          - Energy price (&amp;#8364;/kWh)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Total amount to pay (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info12</identifier>
+      <mRID>008519ee-a653-45e4-bab3-5e0ac73cd74c</mRID>
+      <name>Invoice for shared energy through the EC</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of EC Member&lt;/li&gt;&lt;li&gt;Time stamp&lt;/li&gt;&lt;li&gt;Time series for the whole month in 15 min. intervals:&lt;/li&gt;&lt;/ul&gt;            - Credit points</description>
+      <identifier>Info13</identifier>
+      <mRID>a0f2ab81-a0a1-4337-905d-d21875918754</mRID>
+      <name>Credit points</name>
+    </BusinessObject>
+    <BusinessObject>
+      <description>&lt;ul&gt;&lt;li&gt;ID of the EC Member&lt;/li&gt;&lt;li&gt;Time Stamp&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Time series for the whole month in 15 mins. intervals:&lt;/li&gt;&lt;/ul&gt;            - Consumption (kWh)&lt;br/&gt;            - Credit points&lt;br/&gt;            - Energy price (&amp;#8364;/kWh)&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Total amount to pay (&amp;#8364;)&lt;/li&gt;&lt;/ul&gt;</description>
+      <identifier>Info14</identifier>
+      <mRID>29d1c125-3256-485e-99aa-21bbcb8fbee7</mRID>
+      <name>Invoice for grid consumption of EC member without PV</name>
+    </BusinessObject>
+  </BusinessObjectLibrary>
+  <CommonTermLibrary />
+  <name>Use Case Repository</name>
+  <RequirementLibrary />
+  <UseCaseLibrary>
+    <UseCase>
+      <ActorGrouping>
+        <description />
+        <FurtherActorInformation>
+          <Actor>
+            <mRID>0ff4c53f-d740-4cee-82fb-d24a202a7826</mRID>
+          </Actor>
+          <Actor>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </Actor>
+          <Actor>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </Actor>
+          <Actor>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </Actor>
+          <Actor>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </Actor>
+          <Actor>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </Actor>
+          <Actor>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </Actor>
+          <description />
+        </FurtherActorInformation>
+        <name />
+      </ActorGrouping>
+      <BusinessCase>
+        <mRID>3126612c-a226-4e80-a66f-3a3bcf9554a8</mRID>
+      </BusinessCase>
+      <classification />
+      <Drawing>
+        <drawingType>scenarios flowchart</drawingType>
+        <mRID>46b4cea2-d18f-4a27-85ca-a8e443256bfe</mRID>
+        <name>Flow1 - scenarios flowchart</name>
+        <URI type="UMLDiagram">BE_ Current EC operation\Image8.png</URI>
+      </Drawing>
+      <Drawing>
+        <drawingType>use case overview</drawingType>
+        <mRID>61c080e0-5d2b-4ffd-ac69-24337b31416c</mRID>
+        <name>Flow1- overview</name>
+        <URI type="UMLDiagram">BE_ Current EC operation\Image9.png</URI>
+      </Drawing>
+      <identifier />
+      <KeyPerformanceIndicator>
+        <description>The energy literacy of the EC members shall be increased by &amp;gt;= 50% with respect to the baseline based on computations at the start of the project (D1.2, D2.3).</description>
+        <identifier>1</identifier>
+        <mRID>36a0fa9e-9401-4d2c-91b8-8a2251553f8b</mRID>
+        <name>Energy literacy of the EC members</name>
+        <Objective>
+          <mRID>c63f6094-df84-4f3c-963d-95f82854af6d</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>To measure the effect on the billing process, the amount of time spent on the billing process can be measured.</description>
+        <identifier>2</identifier>
+        <mRID>5e99c492-a434-4d12-ad41-a87df3e81bc8</mRID>
+        <name>Time spent on billing process</name>
+        <Objective>
+          <mRID>3a33ccc6-a62f-4363-a32b-406bbc357daf</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The energy bill shall be lowered by &amp;gt;= 10% and by &amp;gt;= 15% for the EC members without PV panels in comparison to the beginning of the project.</description>
+        <identifier>3</identifier>
+        <mRID>fa0200bb-958f-467c-ab13-f37e6f96a7d4</mRID>
+        <name>Energy bill of the EC members without PV </name>
+        <Objective>
+          <mRID>6764aab7-aa1f-406a-a57e-13c0b5528397</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The collective self-consumption of the EC shall be increased by &amp;gt;=15%.&lt;br/&gt;</description>
+        <identifier>4</identifier>
+        <mRID>fb66811f-ff1d-4026-8611-5ac27529221f</mRID>
+        <name>Self-consumption of the EC</name>
+        <Objective>
+          <mRID>d9b9daf5-ecee-4853-8e8f-898b25ce956c</mRID>
+        </Objective>
+        <Objective>
+          <mRID>343d8bc2-520a-42ec-bf2c-a0a41725f392</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The monetary value for the EC members without PV of increasing the amount of shared energy can be analyzed. &lt;br/&gt;For Klimaan, the revenue generated by sharing energy within the EC can be analyzed.&lt;br/&gt;</description>
+        <identifier>5</identifier>
+        <mRID>8d4eeeb7-b92d-4824-a38f-e5f80014d876</mRID>
+        <name>Revenue/Savings of EC members without PV and Klimaan</name>
+        <Objective>
+          <mRID>d9b9daf5-ecee-4853-8e8f-898b25ce956c</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The use of distributed energy resources by active consumers shall be increased by &amp;gt;=30%.</description>
+        <identifier>6</identifier>
+        <mRID>d56a26f5-73e9-4441-81c4-ed0cf34d8ef7</mRID>
+        <name>Use of DER</name>
+        <Objective>
+          <mRID>343d8bc2-520a-42ec-bf2c-a0a41725f392</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <KeyPerformanceIndicator>
+        <description>The revenue of employing distributed energy resources (DER) shall be increased. In this pilot, Klimaan is the owner of the PV panels, therefore this objective can be measured by computing the revenue generated by Klimaan through the DERs. The revenue shall be increased by &amp;gt;=25%.</description>
+        <identifier>7</identifier>
+        <mRID>784dd382-9638-4a1e-8e80-8ba8126f64a9</mRID>
+        <name>Revenue of Klimaan</name>
+        <Objective>
+          <mRID>5f665a82-fbf7-4a6c-aa2d-1d413b396a3f</mRID>
+        </Objective>
+      </KeyPerformanceIndicator>
+      <keywords>Flemish regulations, Two different types of members,    Billing process facilitation,  Credit points, Integration into social housing</keywords>
+      <levelOfDepth />
+      <mRID>159a573b-4ef9-4375-b542-2fee670b5555</mRID>
+      <name>BE: Current EC operation</name>
+      <Narrative>
+        <completeDescription>This business use case shows the operation of the energy community in Belgium. &lt;br/&gt;In the energy community, two types of members exist, those with PV panels on their roofs and those without. The members with PV have a primary energy supplier and perform self-consumption of the energy generated through the PV panels on their roof. Excess energy is injected into the grid. The members without PV only consume energy from the grid through their primary energy supplier and participate in energy sharing identified in the billing period. This shared energy is calculated by taking the minimum of the amount of energy injected into the grid by the houses with PV and the amount of energy consumed by the houses without PV. Legally, this energy is shared by Klimaan with the members without PV panels.  &lt;br/&gt;In the current operation path, no flexible assets exist. The members receive forecasts on PV production, consumption and the energy price in the market through the EC Manager. In the operation phase, the members receive RT information on the PV production and consumption, in order to help them adjust their energy usage behaviour. &lt;br/&gt;On the future path, batteries are installed behind the meters of the members with PV. These batteries are owned and controlled by Klimaan. In the operational planning stage, the schedule of the batteries is calculated and in the real-time operation the batteries are controlled. The billing process is identical to the one of the current operation.</completeDescription>
+        <mRID>71b3b4a8-f239-482d-9da1-aead9736bd50</mRID>
+        <shortDescription>This business use case describes the operation of the EC in Belgium. &lt;br/&gt;This BUC consists of two scenario paths, the current one and another one for a future scenario in which batteries are installed behind the meter of the members with PV.</shortDescription>
+      </Narrative>
+      <nature>BUC</nature>
+      <Prerequisite>
+        <description>For the operation of the EC, the following preconditions have to be fulfilled: &lt;br/&gt;- Agreement between Woonland and Klimaan on the use of the roofs for the PV panels and the billing process between these two parties. &lt;br/&gt;- Agreement between the DSO, Klimaan, the energy supplier and the EC members without PV on the sharing process (choosing one of the available sharing schemes) and the formation of an energy community.&lt;br/&gt;- Agreement between the EC members and Klimaan to exchange information of the meters, to store historical data for forecasting and to do the billing process.&lt;br/&gt;- For the future scenario path with the batteries behind the meter of the members with PV, the meters have to be able to deliver real-time information for monitoring purposes and the control of the batteries.&lt;br/&gt;</description>
+        <mRID>e3a24e50-90c3-4cdb-8dc9-bfb1c7e12873</mRID>
+        <name>Preconditions</name>
+        <number>1</number>
+      </Prerequisite>
+      <prioritization />
+      <RelatedObjective>
+        <description>Through the monitoring interface, the EC members gain a more profound understanding of the PV production, their energy usage and the market prices. This aims at increasing energy literacy and understanding for the use of renewable energy and the benefits of ECs.</description>
+        <mRID>c63f6094-df84-4f3c-963d-95f82854af6d</mRID>
+        <name>Increase energy literacy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through the billing platform, the billing process is facilitated and the bills generated for the EC members are easy to understand and clearly show the energy used from within the community.The developed billing process can be adopted by other ECs, making it easier to found new energy communities or to expand existing ones.</description>
+        <mRID>3a33ccc6-a62f-4363-a32b-406bbc357daf</mRID>
+        <name>Facilitate the billing process </name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description>Through sharing energy and the future use of the batteries, the energy bill of the EC members shall be lowered.</description>
+        <mRID>6764aab7-aa1f-406a-a57e-13c0b5528397</mRID>
+        <name>Reduce energy invoice </name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>d9b9daf5-ecee-4853-8e8f-898b25ce956c</mRID>
+        <name>Increase amount of shared energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>343d8bc2-520a-42ec-bf2c-a0a41725f392</mRID>
+        <name>Increase use of locally generated renewable energy</name>
+      </RelatedObjective>
+      <RelatedObjective>
+        <description />
+        <mRID>5f665a82-fbf7-4a6c-aa2d-1d413b396a3f</mRID>
+        <name>Increase revenue from DER</name>
+      </RelatedObjective>
+      <Scenario>
+        <Activity>
+          <description>Numerical weather prediction data is requested by the EC manager through a specific API.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>ec442342-7435-4d48-becb-129442e3474e</mRID>
+          <name>01Request numerical weather prediction data</name>
+          <number>1.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>In order to calculate a forecast of PV production and consumption, the EC manager reads historical production and consumption data of each EC member. The EC member gave the consent for this.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>9f8f11dc-22a4-49c0-ab23-03f540a32db6</mRID>
+          <name>02Read historical consumption and production data</name>
+          <number>1.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>On the basis of the numerical weather prediction data and the historical production data of each EC member, the EC manager creates a forecast of the PV production of the following day. &lt;br/&gt;Additionally, the EC manager computes a forecast of the consumption of each EC member on the basis of historical consumption data.&lt;br/&gt;On the basis of these forecasts, an estimate of the injection by all EC members with PV is computed. &lt;br/&gt;&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>d20a9e58-c705-48be-a15e-baf75ef0efaf</mRID>
+          <name>03PV production forecast and consumption forecast</name>
+          <number>1.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The market prices are requested.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>1bce0cdd-cc8e-4e23-872a-1ffdfa497309</mRID>
+          <name>04Request market prices</name>
+          <number>1.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>02845e3f-15fd-42e3-a5ee-71a3fff65955</mRID>
+          </BusinessObject>
+          <description>The information (forecasts of production, consumption, injection, market price) is stored and prepared in order to send it to each member of the EC (with PV and without PV).&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationReceiver>
+          <InformationReceiver>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationReceiver>
+          <mRID>80ca871e-4bca-408c-a692-8888dfbccc24</mRID>
+          <name>05Organize information and send to the EC member</name>
+          <number>1.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member with PV receives their consumption, production and price forecast.</description>
+          <event />
+          <InformationProducer>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationProducer>
+          <mRID>7e8a0cfc-1a9b-4428-875f-a072b24945df</mRID>
+          <name>06Acknowledge the forecasts</name>
+          <number>1.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC Member without PV receives the forecast for the own consumption, the injection of the members with PV and the prices.</description>
+          <event />
+          <InformationProducer>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationProducer>
+          <mRID>956d31f8-4dfa-40f8-9a53-7a60039280b3</mRID>
+          <name>07Acknowledge the forecasts </name>
+          <number>1.7</number>
+          <service />
+        </Activity>
+        <description>In this scenario, the EC manager creates forecasts for the PV production and the consumption. These forecasts are sent to the EC members in order to guide their energy consumption behavior.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>0636ac27-69ea-4da9-b0e2-70b8ea3ed16f</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">BE_ Current EC operation\Image1.png</URI>
+        </Drawing>
+        <mRID>2b8876fd-c6c0-42a1-a380-b90d6ed8ef20</mRID>
+        <name>01.0Operational planning</name>
+        <number>1</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>Numerical weather prediction data is requested using a specific API</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>96370f72-e8b2-41a0-a8d3-fc30d94c3d83</mRID>
+          <name>01Request numerical weather prediction data </name>
+          <number>2.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>In order to calculate a forecast of PV production and consumption, the EC manager reads historical production and consumption data of each EC member. The EC member gave the consent for this. &lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>cd1b4839-ca82-42a1-a597-6f377f7a20fe</mRID>
+          <name>02Read historical production and consumption data</name>
+          <number>2.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>In order to schedule the flexible assets, the EC manager reads the current state of the batteries.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>7c4f26ed-f89e-42d5-a619-ae8eb559b21c</mRID>
+          <name>03Get current state of the batteries</name>
+          <number>2.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>On the basis of the numerical weather prediction data and the historical production data of each EC member, the EC manager creates a forecast of the PV production of the following day. &lt;br/&gt;Additionally, the EC manager computes a forecast of the consumption of each EC member.&lt;br/&gt;On the basis of these forecasts, an estimate of the injection by all EC members with PV is computed. &lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>3f07186a-a900-4363-bca5-256fc8858a8f</mRID>
+          <name>04PV production and consumption forecast</name>
+          <number>2.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The market prices for energy are being requested. &lt;br/&gt;&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>91e53c57-1f50-4b6e-a9b5-1e774896a454</mRID>
+          <name>05Request market prices</name>
+          <number>2.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager creates a schedule for the batteries installed in the houses of the EC members with PV. Different objective functions can be considered such as individual self-consumption maximization, collective self-consumption maximization, etc.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>7b0d0b70-4f2b-4b72-8c2c-ca86495758ac</mRID>
+          <name>06Look ahead energy resource scheduling</name>
+          <number>2.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+          </BusinessObject>
+          <description>The schedule of the batteries is stored, and the forecasts are prepared to be sent to each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationReceiver>
+          <mRID>a1319eff-16d4-4161-9ad1-8eaa7d3637c7</mRID>
+          <name>07Organize information and send to each EC member</name>
+          <number>2.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>02845e3f-15fd-42e3-a5ee-71a3fff65955</mRID>
+          </BusinessObject>
+          <description>The schedule of the batteries is stored, and the forecasts are prepared to be sent to each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationReceiver>
+          <mRID>a1319eff-16d4-4161-9ad1-8eaa7d3637c7</mRID>
+          <name>07Organize information and send to each EC member</name>
+          <number>2.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member with PV receives the schedule for the batteries located in the house and the forecasts of PV production and individual consumption and the market energy prices. No validation is required as the EC manager has complete control over the batteries.</description>
+          <event />
+          <InformationProducer>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationProducer>
+          <mRID>50e6ab80-3469-4ea7-9cab-e35c0bc2499d</mRID>
+          <name>08Acknowledgement of the schedule and forecasts</name>
+          <number>2.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC member without PV receives the forecasts for the expected injection of the EC and the individual consumption and the market energy prices.</description>
+          <event />
+          <InformationProducer>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationProducer>
+          <mRID>8376a9cb-2d5a-4edc-8712-6221c32a4d2d</mRID>
+          <name>09Acknowledgement of the forecasts</name>
+          <number>2.10</number>
+          <service />
+        </Activity>
+        <description>In this scenario, the EC manager creates forecasts for the PV production and the consumption. Additionally, a schedule for the flexible assets (batteries in the houses of EC members with PV) is generated. The forecasts and the schedule are stored and sent to the EC members in order to provide them with insights into the expected production and consumption.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>e1cb635b-e1b0-4b72-a1e0-3c8bd4152a2a</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">BE_ Current EC operation\Image2.png</URI>
+        </Drawing>
+        <mRID>8f0c60f6-8687-4957-a6c8-09dd80eef801</mRID>
+        <name>01.1Operational planning with flexible assets</name>
+        <number>2</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The EC manager collects the PV production data through the inverter of the PV panels. The granularity of the data on FUsion Solar for monitoring is 5 minutes, however when the API of Fusion Solar is used to access the data, the granularity is 1 hour.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>6927a63a-fb79-4f19-88cb-8b4225418cd7</mRID>
+          <name>01Collect PV production data</name>
+          <number>3.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The PV production data is stored for the billing phase.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>5223a159-34fa-4d4e-ba61-ce71d9d99020</mRID>
+          <name>02Store data for billing</name>
+          <number>3.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager has access to the consumption data of the EC members. Currently, the EC manager does not have access to this data, however a possible future scenario to receive this data is through P1 dongles. The EC manager collects the consumption and injection data (EC Members with PV) and the consumption data (EC Members without PV).</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>25321311-e7e7-4535-9dbc-2ed9c9a98e28</mRID>
+          <name>03Collect consumption and injection data</name>
+          <number>3.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>61b6ebba-5cfd-44f0-9a97-60f6bf333390</mRID>
+          </BusinessObject>
+          <description>The production, consumption and injection data are stored in an appropriate way.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationReceiver>
+          <mRID>01579951-fac0-40ed-81d7-b49bf12c6859</mRID>
+          <name>04Store data</name>
+          <number>3.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b278a8e8-cde9-499c-a09d-0cb1c4d33c98</mRID>
+          </BusinessObject>
+          <description>The production, consumption and injection data are stored in an appropriate way.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationReceiver>
+          <mRID>01579951-fac0-40ed-81d7-b49bf12c6859</mRID>
+          <name>04Store data</name>
+          <number>3.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC Member with PV receives real-time information on the production (only own data), the consumption (only own data) and injection (EC data and own data). &lt;br/&gt;To visualize the data, a panel has to be developed.</description>
+          <event />
+          <InformationProducer>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationProducer>
+          <mRID>b08e43b1-2b73-4b24-bded-31bb8ae17ddc</mRID>
+          <name>05Receive data</name>
+          <number>3.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member without PV receives real-time data of consumption (only own data) and the energy injected into the grid by the EC members with PV.&lt;br/&gt;To visualize the data, a panel has to be developed.</description>
+          <event />
+          <InformationProducer>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationProducer>
+          <mRID>d987664b-47b0-4240-b403-33330731ec79</mRID>
+          <name>06Receive data</name>
+          <number>3.7</number>
+          <service />
+        </Activity>
+        <description>In order to provide the EC members with information about their energy use and the current PV production, the members receive information on PV production and consumption through a panel.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>b9306a0d-397b-4eab-838c-dc6412ba23b8</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">BE_ Current EC operation\Image3.png</URI>
+        </Drawing>
+        <mRID>f1e07f5e-561f-40ea-919a-cefcbb84ce68</mRID>
+        <name>02.0Monitoring</name>
+        <number>3</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>The EC manager collects the PV production data through the inverter of the PV panels. The granularity of the data on FUsion Solar for monitoring is 5 minutes, however when the API of Fusion Solar is used to access the data, the granularity is 1 hour. &lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>5532e3a2-cade-49a6-9f2d-d366a0fb4f43</mRID>
+          <name>01Collect PV production data</name>
+          <number>4.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager has access to the meters of all EC members. The EC manager can access real-time data of the consumption and injection (EC members with PV) and the consumption (EC members without PV).&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>a0c7fc38-4c61-4468-8c33-3beb711d00db</mRID>
+          <name>02Collect consumption and injection data</name>
+          <number>4.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC Manager stores the PV production data for the billing phase.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>e3e4f052-ab9c-42ab-b2a7-edfadb8ee513</mRID>
+          <name>03Store data for billing</name>
+          <number>4.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager has access to the batteries and collects the state of the batteries in real-time. The batteries are located in the houses of the EC members with PV.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>41788719-9b03-411d-ae9e-c3388737e342</mRID>
+          <name>04Collect BESS state</name>
+          <number>4.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+          </BusinessObject>
+          <description>The EC manager stores the production, consumption, injection and battery data in an appropriate way.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationReceiver>
+          <mRID>5da38d41-40d0-47f4-ab18-7517a516a9f0</mRID>
+          <name>04Store data</name>
+          <number>4.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>25353f5d-38c1-4c20-8fb7-1c08ec84f842</mRID>
+          </BusinessObject>
+          <description>The EC manager stores the production, consumption, injection and battery data in an appropriate way.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationReceiver>
+          <mRID>5da38d41-40d0-47f4-ab18-7517a516a9f0</mRID>
+          <name>04Store data</name>
+          <number>4.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member with PV receives real-time information on production (only own data), consumption (only own data), injection (EC data and own data) and the state of the own batteries. &lt;br/&gt;To visualize the data, a platform has to be developed.</description>
+          <event />
+          <InformationProducer>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationProducer>
+          <mRID>28861023-de36-4a6f-81ae-a8ea9ba44324</mRID>
+          <name>05Receive data</name>
+          <number>4.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member without PV receives real-time data of their own consumption and the energy injected into the grid by the EC members with PV.&lt;br/&gt;To visualize the data, a platform has to be developed.</description>
+          <event />
+          <InformationProducer>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationProducer>
+          <mRID>8865966f-d714-47d0-acd5-039a2bc96f28</mRID>
+          <name>06Receive data</name>
+          <number>4.8</number>
+          <service />
+        </Activity>
+        <description>In order to provide the EC members with information about their energy use and the current PV production, the members receive real-time information on PV production and consumption through a panel.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>219ec2e0-2d58-4b78-bd44-2051c2b5e1ce</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">BE_ Current EC operation\Image4.png</URI>
+        </Drawing>
+        <mRID>3e44fb3a-7a3c-4256-95de-a54694b1ec2c</mRID>
+        <name>02.1Monitoring with flexible assets</name>
+        <number>4</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>Determine the setpoint for charging and discharging the batteries considering the real-time measurements and the scheduling profiles. The setpoints are sent to the batteries via an API of the BESS manufacturer.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>466e8d13-eda9-4c46-a46f-193520f6612a</mRID>
+          <name>01Control BESS</name>
+          <number>5.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager receives real-time data of the houses with the consumption, production, injection and battery data.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>2e089811-a4d6-4cac-88b6-baf816efd8ca</mRID>
+          <name>02Measurements</name>
+          <number>5.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The data is processed and stored in an appropriate way.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>5e352c7d-9480-4cce-aba0-2c7cd796f7a6</mRID>
+          <name>03Process and store data</name>
+          <number>5.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The EC manager compares the real-time measurements with the current schedule.</description>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>fa36c336-256b-4ce5-b7dc-f2e767670981</mRID>
+          <name>04Performance evaluation</name>
+          <number>5.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <ChildActivity>
+            <description>The EC manager requests updated numerical weather prediction data.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>c6109257-ea4a-41b1-86db-bc138225dc64</mRID>
+            <name>01Request numerical weather prediction data</name>
+            <number>5.5.1</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager reads historical consumption and production data of the EC members and the current states of the flexible assets. The EC members gave consent for sharing this data with the EC manager. Additionally, the current status of the storage system is requested as a basis for the new schedule.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>41ae1fd9-8190-4ffd-8eb6-659b977edcb9</mRID>
+            <name>02Collect historical data and state of the storage systems</name>
+            <number>5.5.2</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>Using the updated numerical weather prediction data and the historical data of each member, the EC manager calculates an updated PV production forecast and consumption forecast for each member.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>b5214167-ebcc-405c-87e0-86afa8c2e62c</mRID>
+            <name>03PV and consumption forecast</name>
+            <number>5.5.3</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The current market prices are requested. These can be the same as in the day-ahead scheduling, depending on the type of market.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>6841e379-797b-4306-8947-b352067f10b9</mRID>
+            <name>04Request market prices</name>
+            <number>5.5.4</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC manager creates a schedule for the batteries installed in the houses of the EC members with PV. Different objective functions can be considered such as individual self-consumption maximization, collective self-consumption maximization, etc.</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <mRID>b66f5d06-6797-4ca1-affe-689caf82889f</mRID>
+            <name>05Look ahead energy resource scheduling</name>
+            <number>5.5.5</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <BusinessObject>
+              <mRID>27b84743-c51d-46eb-a40c-34ec123d8fc5</mRID>
+            </BusinessObject>
+            <description>The schedule of the flexible resources and the updated forecasts are stored and the information is prepared in order to be sent to each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <InformationReceiver>
+              <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+            </InformationReceiver>
+            <mRID>358981de-0ff8-4332-962f-42de016cdf69</mRID>
+            <name>06Organize information and send to each EC member</name>
+            <number>5.5.6</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <BusinessObject>
+              <mRID>02845e3f-15fd-42e3-a5ee-71a3fff65955</mRID>
+            </BusinessObject>
+            <description>The schedule of the flexible resources and the updated forecasts are stored and the information is prepared in order to be sent to each EC member.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+            <event />
+            <InformationProducer>
+              <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+            </InformationProducer>
+            <InformationReceiver>
+              <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+            </InformationReceiver>
+            <mRID>358981de-0ff8-4332-962f-42de016cdf69</mRID>
+            <name>06Organize information and send to each EC member</name>
+            <number>5.5.7</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC member acknowledges the schedule for their flexible resources and receives the forecasts. No validation is required as the EC Manager has complete control over the flexible assets (batteries).</description>
+            <event />
+            <InformationProducer>
+              <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+            </InformationProducer>
+            <mRID>d3ef6a49-12f9-45f3-8a69-1677ea46cb34</mRID>
+            <name>07Acknowledgement of the schedule and forecasts</name>
+            <number>5.5.8</number>
+            <service />
+          </ChildActivity>
+          <ChildActivity>
+            <description>The EC member without PV receives the forecasts for the expected injection of the EC, the individual consumption and the market energy prices.</description>
+            <event />
+            <InformationProducer>
+              <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+            </InformationProducer>
+            <mRID>b7570aff-d4fe-4606-af61-8300cd3bf007</mRID>
+            <name>08Acknowledgement of the forecasts</name>
+            <number>5.5.9</number>
+            <service />
+          </ChildActivity>
+          <description>If the difference between the real-time measurements and the schedule is larger than a certain threshold, the EC manager creates a new schedule for all flexible assets of the community (batteries inside the houses of EC members with PV).</description>
+          <Drawing>
+            <drawingType>activities flowchart</drawingType>
+            <mRID>{A741585C-A46A-425c-A3BB-484E500D15A6}</mRID>
+            <name>Activity1 - activities flowchart</name>
+            <URI type="UMLDiagram">BE_ Current EC operation\Image6.png</URI>
+          </Drawing>
+          <event />
+          <InformationProducer>
+            <mRID>a4a791fb-4935-4082-a327-750508923f0b</mRID>
+          </InformationProducer>
+          <mRID>62cc5485-21b9-419e-8ca9-4ffe9c305e05</mRID>
+          <name>05Request new scheduling</name>
+          <number>5.5</number>
+          <service />
+        </Activity>
+        <description>In this scenario, the flexible assets (batteries inside the houses of EC Members with PV) are controlled. Additionally, the scheduling performance is evaluated and a new schedule is requested when the deviation between the real-time measurements and the schedule is larger than a certain threshold.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>cb5d9372-3678-4de7-9809-d4bcc383b36a</mRID>
+          <name>Scenario1 - activities flowchart</name>
+          <URI type="UMLDiagram">BE_ Current EC operation\Image5.png</URI>
+        </Drawing>
+        <mRID>4f2f3212-2ed5-4802-a276-74242fa7eb76</mRID>
+        <name>02.2Operation with flexible assets</name>
+        <number>5</number>
+      </Scenario>
+      <Scenario>
+        <Activity>
+          <description>Klimaan accesses the PV production data of each PV panel stored in the operation phase.</description>
+          <event />
+          <InformationProducer>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationProducer>
+          <mRID>f4abb16b-5622-49b1-a354-c7e26fd15415</mRID>
+          <name>01Measurements of PV production</name>
+          <number>6.1</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>f84a92d9-663e-4fbd-85cc-0cee5b32fd46</mRID>
+          </BusinessObject>
+          <description>The DSO collects the consumption and injection data through each meter once a month. The EC members with PV can inject energy into the grid and consume energy through the grid, while the EC members without PV only consume energy through the grid.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationReceiver>
+          <mRID>498eccb3-908a-4fdd-98ec-1ddd39d227b9</mRID>
+          <name>02Consolidation of import and export values</name>
+          <number>6.2</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The DSO collects the consumption and injection data through each meter once a month. The EC members with PV can inject energy into the grid and consume energy through the grid, while the EC members without PV only consume energy through the grid.</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <mRID>498eccb3-908a-4fdd-98ec-1ddd39d227b9</mRID>
+          <name>02Consolidation of import and export values</name>
+          <number>6.3</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Klimaan accesses the information provided by the DSO and stores it in a database.&lt;br/&gt;Only for injection data: The data is stored in a CSV file which can be accessed by Klimaan through a SFTP-connection by the 15th of the following month. The data is the aggregated volume of the whole last month. &lt;br/&gt;Only for consumption data: Currently, Klimaan cannot access the consumption data of the EC members. As an EC manager it may be possible to get access to the amount of energy shared within the community for the last month. &lt;br/&gt;For both data: It may be possible to integrate an API of Fluvius (the DSO) to collect consumption and injection data of each member with a granularity of 15 minutes with 24h delay.&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationProducer>
+          <mRID>26e96edc-c5f7-4ae0-9ac3-d6e72e7cf671</mRID>
+          <name>03Acknowledgement of the energy measurements</name>
+          <number>6.4</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>f84f6e44-d2dd-4259-9e3a-b48fe9583e4c</mRID>
+          </BusinessObject>
+          <description>Considering the information provided by the DSO and the existing measurements of the PV production, Klimaan computes the self-consumption of each EC member with PV.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>0ff4c53f-d740-4cee-82fb-d24a202a7826</mRID>
+          </InformationReceiver>
+          <mRID>0af5253a-624e-46e7-8cb6-496a9b1f9b5c</mRID>
+          <name>04Calculation of self-consumption of each EC member with PV</name>
+          <number>6.5</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b4eebecc-bab1-430a-a6d1-93f7da9b368e</mRID>
+          </BusinessObject>
+          <description>Klimaan sets up one invoice for Woonland for the aggregated self-consumption of all the EC members with PV. Woonland does the individual billing of each EC member with PV for their individual self-consumption.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>0ff4c53f-d740-4cee-82fb-d24a202a7826</mRID>
+          </InformationReceiver>
+          <mRID>ba85715e-e962-4ab0-9e9b-6dc80f0caeed</mRID>
+          <name>05Invoice for the self-consumption of all EC members with PV</name>
+          <number>6.6</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Woonland receives the data for the self-consumption of each EC member with PV and sets up an invoice for each EC member with PV for this self-consumption.</description>
+          <event />
+          <InformationProducer>
+            <mRID>0ff4c53f-d740-4cee-82fb-d24a202a7826</mRID>
+          </InformationProducer>
+          <mRID>598935f1-8b91-4155-811c-23d7e3ea4257</mRID>
+          <name>06Invoice for each EC member with PV</name>
+          <number>6.7</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Woonland acknowledges the invoice and settles the bill with Klimaan.</description>
+          <event />
+          <InformationProducer>
+            <mRID>0ff4c53f-d740-4cee-82fb-d24a202a7826</mRID>
+          </InformationProducer>
+          <mRID>fc8da661-963e-4914-9277-df4c477a74e7</mRID>
+          <name>07Acknowledgement and settlement of the invoice</name>
+          <number>6.8</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>650fe86c-905d-430b-ae3a-ee4e87b158ac</mRID>
+          </BusinessObject>
+          <description>The DSO aggregates the consumption data of EC members with PV in order to send this data to the Supplier.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationReceiver>
+          <mRID>557549b5-2690-465f-bd82-5bc2e4963b48</mRID>
+          <name>08Aggregate consumption measurements of each EC member with PV</name>
+          <number>6.9</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The DSO aggregates the consumption data of EC members with PV in order to send this data to the Supplier.</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <mRID>557549b5-2690-465f-bd82-5bc2e4963b48</mRID>
+          <name>08Aggregate consumption measurements of each EC member with PV</name>
+          <number>6.10</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>b97d3138-dc53-4c0b-bf09-ad1e9d559d6a</mRID>
+          </BusinessObject>
+          <description>The supplier acknowledges the consumption data provided by the DSO. On the basis of this data and the unit price per time interval, an invoice is generated for each EC member with PV.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationReceiver>
+          <mRID>ccbe605c-5883-4e0f-a207-454e0ef48551</mRID>
+          <name>09Acknowledge consumption data and prepare bill</name>
+          <number>6.11</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC Member with PV receives 2 invoices:&lt;br/&gt;1) from Woonland for the self-consumption &lt;br/&gt;2) from the supplier for consumption through the grid&lt;br/&gt;The EC Member with PV acknowledges these invoices and settles them.</description>
+          <event />
+          <InformationProducer>
+            <mRID>ba770780-4e46-4f00-a9a7-ca41a3cf6631</mRID>
+          </InformationProducer>
+          <mRID>373fd28b-44be-40f2-9288-611c47348ea4</mRID>
+          <name>10Acknowledgement and settlement of the invoices</name>
+          <number>6.12</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>8341961d-4137-4f10-a3bf-5dbdc1548a82</mRID>
+          </BusinessObject>
+          <description>The DSO computes the energy shared between Klimaan and the EC members without PV. The sharing process follows the contract of the EC. In Flanders there are currently three options the EC manager can choose from: &lt;br/&gt;1) fixed distribution key &lt;br/&gt;2) relative distribution key&lt;br/&gt;3) optimal distribution key &lt;br/&gt;to determine how the energy is shared between the different parties.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationReceiver>
+          <mRID>88a2d4ce-3fb4-47c3-9b06-6e9b62a68b97</mRID>
+          <name>11Compute energy shared inside the community</name>
+          <number>6.13</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>008519ee-a653-45e4-bab3-5e0ac73cd74c</mRID>
+          </BusinessObject>
+          <description>Klimaan sets up a bill for the energy consumed by EC members without PV through the community.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>0beef362-feed-40bf-9aa3-9d741c127ddf</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationReceiver>
+          <mRID>6ab3c99f-ce6e-43aa-908a-045d5506437b</mRID>
+          <name>12Sets up a bill for the energy shared within the community </name>
+          <number>6.14</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>a0f2ab81-a0a1-4337-905d-d21875918754</mRID>
+          </BusinessObject>
+          <description>The energy shared between Klimaan and the EC members without PV is marked by credit points. These credit points are then sent to the Supplier, together with the consumption data of each EC member without PV.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>02fa89a4-48f5-4a08-84ea-39c5bf34f1c9</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationReceiver>
+          <mRID>6782816f-8bf7-473b-9989-d37f26ddc854</mRID>
+          <name>13Credit points for the energy shared within the community</name>
+          <number>6.15</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>The supplier acknowledges the measurements and the credit points provided by the DSO.</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <mRID>03dc2c4b-52c1-4d30-9fd1-e4a2938d1146</mRID>
+          <name>14Acknowledgement of the credits and the measurements</name>
+          <number>6.16</number>
+          <service />
+        </Activity>
+        <Activity>
+          <BusinessObject>
+            <mRID>29d1c125-3256-485e-99aa-21bbcb8fbee7</mRID>
+          </BusinessObject>
+          <description>Using the measurements and the credit points, an invoice is generated for each EC member without PV for the energy imported from the grid.&lt;br/&gt;Modsarus Use Case::InstanceName=&lt;br/&gt;Modsarus Use Case::InstanceDescription=&lt;br/&gt;</description>
+          <event />
+          <InformationProducer>
+            <mRID>38f5c35f-baea-4fda-8f11-93fbecb36893</mRID>
+          </InformationProducer>
+          <InformationReceiver>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationReceiver>
+          <mRID>66e313a9-c52d-4ff2-999f-32a6243d17e2</mRID>
+          <name>15Set up a bill for energy consumed through the grid</name>
+          <number>6.17</number>
+          <service />
+        </Activity>
+        <Activity>
+          <description>Each EC member without PV receives 2 invoices: &lt;br/&gt;1) from Klimaan for the consumption of shared energy &lt;br/&gt;2) from the supplier for the energy consumed through the grid&lt;br/&gt;&lt;br/&gt;The EC member without PV acknowledges these invoices and settles them.</description>
+          <event />
+          <InformationProducer>
+            <mRID>55271895-0350-4507-97c6-cd3ec60ddf44</mRID>
+          </InformationProducer>
+          <mRID>bc599ef4-31ae-4d37-8f53-ec3af7134225</mRID>
+          <name>16Acknowledgement of the invoice &amp; payment </name>
+          <number>6.18</number>
+          <service />
+        </Activity>
+        <description>The community consists of two different kinds of members, members with PV installed on their roof and members without PV. In a legal sense, only those without PV and Klimaan (with the combined injection capacity of the different houses) are part of the energy community. However, to strengthen the community feeling, those with PV panels shall be seen as part of the energy community too. &lt;br/&gt;&lt;br/&gt;EC members with PV panels on their roof receive the following two invoices: &lt;br/&gt;1) From Woonland for their self-consumption &lt;br/&gt;2) From their supplier for the energy consumed from the grid&lt;br/&gt;&lt;br/&gt;EC members without PV panels installed on their roof receive the following two invoices:&lt;br/&gt;1) From Klimaan for the energy consumed through sharing inside the community &lt;br/&gt;2) From their supplier for the energy consumed from the grid. These measurements are corrected by credit points for the shared energy, marked by the DSO.</description>
+        <Drawing>
+          <drawingType>activities flowchart</drawingType>
+          <mRID>a0f393db-cdc8-4fb9-9922-f1d8e4bd473b</mRID>
+          <name>Billing - activities flowchart</name>
+          <URI type="UMLDiagram">BE_ Current EC operation\Image7.png</URI>
+        </Drawing>
+        <mRID>30b91066-d67f-47f3-8b64-ba2039c75242</mRID>
+        <name>03Billing</name>
+        <number>6</number>
+      </Scenario>
+      <scope>This business use case describes the flow of information between the roles participating in the current operation of the EC in Belgium. &lt;br/&gt;The BUC is split into two paths, the current operation and the future operation with batteries behind the meter of the members with PV. In the latter path, the batteries are owned and controlled by Klimaan. &lt;br/&gt;The first path consists of three stages, the operational planning stage, the operation stage and the billing stage. In the forecasting phase, the EC members receive forecasting information on the PV production, consumption and market prices. The operation phase then provides real time information to the members, in order to guide their behaviour towards using more locally generated energy. The billing scenario shows the settlement and billing process, which shall be simplified by the U2Demo project.&lt;br/&gt;The second path, the future operation, includes additionally the scheduling of the batteries in the  operational planning stage and the control of the batteries in the real-time operation. The billing phase remains identical to the first path.</scope>
+    </UseCase>
+  </UseCaseLibrary>
+</UC:UseCaseRepository>
